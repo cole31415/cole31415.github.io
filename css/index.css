@@ -2115,6 +2115,9 @@ kbd {
 .back2top__icon:hover {
   color: #fc6423;
 }
+a.fancybox {
+  cursor: zoom-in;
+}
 .zoomimg-mask {
   position: fixed;
   top: 0;
@@ -2139,6 +2142,13 @@ kbd {
   background-color: #fff;
   cursor: zoom-out;
   will-change: transform;
+}
+.lazyload-block {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  min-width: 30px;
+  min-height: 30px;
 }
 .mode {
   position: relative;
