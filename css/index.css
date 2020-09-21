@@ -1881,6 +1881,9 @@ body::after {
 .post-tags-item:hover .post-tags-item__link {
   color: #fc6423;
 }
+.post-reward {
+  margin-bottom: 1rem;
+}
 .post-paginator {
   border-top: 1px solid var(--color-gray-250);
   padding-top: 1rem;
@@ -2306,6 +2309,49 @@ body::after {
   white-space: normal;
   word-wrap: normal;
   word-break: break-all;
+}
+.reward {
+  text-align: center;
+}
+.reward-button {
+  display: inline-block;
+  margin: 1rem 0 1.5rem;
+  border-radius: 6px;
+  padding: 0.2rem 1rem;
+  color: #f5f6f7;
+  background-color: #ff6868;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+.reward-button:hover {
+  background-color: #e45c5c;
+}
+.reward-qrcode {
+  display: none;
+}
+.reward-qrcode-alipay,
+.reward-qrcode-wechat {
+  display: inline-block;
+  margin: 0 2rem;
+}
+.reward-qrcode-alipay__img,
+.reward-qrcode-wechat__img {
+  width: 200px;
+  height: 200px;
+}
+.reward-qrcode-alipay__text,
+.reward-qrcode-wechat__text {
+  margin: 0.5rem 0;
+}
+.reward-qrcode-alipay__text {
+  color: #1caceb;
+}
+.reward-qrcode-wechat__text {
+  color: #3cb034;
 }
 .back2top {
   position: fixed;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BlueBerry&#39;s Blog</title>
+  <icon>http://example.com/child/icon.png</icon>
+  <subtitle>Talent in words, wisdom in books</subtitle>
+  <link href="http://example.com/child/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/child/"/>
+  <updated>2020-09-18T03:28:03.513Z</updated>
+  <id>http://example.com/child/</id>
+  
+  <author>
+    <name>请给我一杯冰可乐</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/child/2020/09/11/hello-world/"/>
+    <id>http://example.com/child/2020/09/11/hello-world/</id>
+    <published>2020-09-11T09:13:56.706Z</published>
+    <updated>2020-09-18T03:28:03.513Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;https://hexo.io/&quot; &gt;Hexo&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
