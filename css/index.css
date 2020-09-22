@@ -2538,6 +2538,18 @@ a.fancybox {
 .footer .exturl__icon {
   color: #fff;
 }
+.comments {
+  margin: 1.5rem 0 0;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background-color: var(--color-card);
+  float: right;
+}
+#disqus_thread {
+  width: 100%;
+  background-color: #fff;
+}
 .copy-button {
   position: absolute;
   top: 0;
