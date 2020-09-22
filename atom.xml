@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-22T08:19:30.401Z</updated>
+  <updated>2020-09-22T09:42:00.667Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决npm ERR！Unexpected end of JSON input while paring near （解析附近时JSON输入意外结束）&#39;....&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;等npm install错误</title>
+    <link href="http://example.com/child/2020/09/22/JSON-perse-failure/"/>
+    <id>http://example.com/child/2020/09/22/JSON-perse-failure/</id>
+    <published>2020-09-22T09:22:37.000Z</published>
+    <updated>2020-09-22T09:42:00.667Z</updated>
+    
+    
+    <summary type="html">最近更新了一次node，但是更新后npm的命令总是会报Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;npm ERR! Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;的错误信息，导致无法进行正常的npm install。经过半天的错误信息搜索，找到了较为友好的解决办法。</summary>
+    
+    
+    
+    <category term="npm" scheme="http://example.com/child/categories/npm/"/>
+    
+    
+    <category term="JSON" scheme="http://example.com/child/tags/JSON/"/>
+    
+    <category term="perse-failure" scheme="http://example.com/child/tags/perse-failure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React实现顶部固定滑动式导航栏</title>
+    <link href="http://example.com/child/2020/09/22/top-fixed-sliding-nav/"/>
+    <id>http://example.com/child/2020/09/22/top-fixed-sliding-nav/</id>
+    <published>2020-09-22T08:26:54.000Z</published>
+    <updated>2020-09-22T09:17:39.587Z</updated>
+    
+    
+    <summary type="html">基于React的框架开发一个顶部固定滑动式的酷炫导航栏，当导航栏置顶时，导航栏沉浸在背景图片里；当鼠标滑动滚轮时，导航栏固定滑动并展示下拉样式。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="fixed-navbar" scheme="http://example.com/child/tags/fixed-navbar/"/>
+    
+    <category term="slide" scheme="http://example.com/child/tags/slide/"/>
+    
+  </entry>
   
   <entry>
     <title>React+Antd+Antd-Img-Crop实现上传固定大小的裁剪头像或者图片</title>
