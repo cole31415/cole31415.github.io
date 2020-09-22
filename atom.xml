@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-22T10:28:20.924Z</updated>
+  <updated>2020-09-22T10:38:00.784Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/child/2020/09/22/config-path-alias/"/>
     <id>http://example.com/child/2020/09/22/config-path-alias/</id>
     <published>2020-09-22T10:13:02.000Z</published>
-    <updated>2020-09-22T10:28:20.924Z</updated>
+    <updated>2020-09-22T10:38:00.784Z</updated>
     
     
     <summary type="html">在 React 中，大多数业务逻辑都组件化；极大的减轻了代码的冗余度，如果组件的层次比较深的话，组件的 import 就比较费劲，在 import 时使用“../../components/test”的方式，组件的 import 就会稍显混乱、组件代码不容易维护。为了可高效的、快速的维护组件代码，废弃“../../”的组件引入方式，配置一个组件路径重写的方式引入组件。</summary>
@@ -42,7 +42,7 @@
     <link href="http://example.com/child/2020/09/22/antd-config-demand-loading/"/>
     <id>http://example.com/child/2020/09/22/antd-config-demand-loading/</id>
     <published>2020-09-22T09:45:04.000Z</published>
-    <updated>2020-09-22T10:04:44.090Z</updated>
+    <updated>2020-09-22T10:37:52.555Z</updated>
     
     
     <summary type="html">为了更好的书写css样式，在react中引入less，在网上查询了许多关于react引入less样式文件的资料，大多数都是需要在react项目中npm run eject暴露出底层文件，然后在底层文件中修改dev-env的环境配置。在请教了大佬后知道可以根据antd官网文档中的高级配置来配备less，通过react-app-rewired来对默认配置进行自定义化，在新的@2.x版本中还需要下载customize-cra。这样我们就可以在项目的根目录下创建一个配置文件来修改默认的配置了。详细介绍可以参考antd官方网站的高级配置文档。</summary>
