@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-22T09:42:00.667Z</updated>
+  <updated>2020-09-22T10:04:44.090Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于create-react-app脚手架，按需加载antd组件以及less样式</title>
+    <link href="http://example.com/child/2020/09/22/antd-config-demand-loading/"/>
+    <id>http://example.com/child/2020/09/22/antd-config-demand-loading/</id>
+    <published>2020-09-22T09:45:04.000Z</published>
+    <updated>2020-09-22T10:04:44.090Z</updated>
+    
+    
+    <summary type="html">为了更好的书写css样式，在react中引入less，在网上查询了许多关于react引入less样式文件的资料，大多数都是需要在react项目中npm run eject暴露出底层文件，然后在底层文件中修改dev-env的环境配置。在请教了大佬后知道可以根据antd官网文档中的高级配置来配备less，通过react-app-rewired来对默认配置进行自定义化，在新的@2.x版本中还需要下载customize-cra。这样我们就可以在项目的根目录下创建一个配置文件来修改默认的配置了。详细介绍可以参考antd官方网站的高级配置文档。</summary>
+    
+    
+    
+    
+    <category term="demand-loading" scheme="http://example.com/child/tags/demand-loading/"/>
+    
+    <category term="scaffold" scheme="http://example.com/child/tags/scaffold/"/>
+    
+  </entry>
   
   <entry>
     <title>解决npm ERR！Unexpected end of JSON input while paring near （解析附近时JSON输入意外结束）&#39;....&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;等npm install错误</title>
