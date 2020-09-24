@@ -55,19 +55,10 @@
     <link href="http://example.com/child/2020/09/23/customize-antd-modal/"/>
     <id>http://example.com/child/2020/09/23/customize-antd-modal/</id>
     <published>2020-09-23T02:21:24.000Z</published>
-    <updated>2020-09-23T02:34:02.427Z</updated>
+    <updated>2020-09-24T04:02:00.590Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">
-        &lt;h2 id=&quot;前言&quot;   &gt;
-          &lt;a href=&quot;#前言&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;前言&lt;/h2&gt;
-      &lt;p&gt;近期在做页面的优化，需要对 antd 的</summary>
-        
-      
+    <summary type="html">近期在做页面的优化，需要对 antd 的 Modal 组件模块进行精细的调优，简单地说就是给 Modal 二次美妆，提升用户的体验感。在此分享一下自己在实际逻辑代码中对美化 Modal 的理解，并用简单生动的 demo 来展示学习成果。</summary>
     
     
     
