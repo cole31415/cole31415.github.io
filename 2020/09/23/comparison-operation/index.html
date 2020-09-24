@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/assets/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} &#x3D;&#x3D; {} 或 {} &gt; {} 输出false，为什么{} &gt;&#x3D; {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从入门到入土JS知识(一)：关系操作符和相等操作符">
+<meta property="og:url" content="http://example.com/child/2020/09/23/comparison-operation/index.html">
+<meta property="og:site_name" content="BlueBerry&#39;s Blog">
+<meta property="og:description" content="在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} &#x3D;&#x3D; {} 或 {} &gt; {} 输出false，为什么{} &gt;&#x3D; {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907174642219-806230023.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907182443630-1791452558.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907184013881-134313189.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200915164045495-2078530855.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908101750929-415747854.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908105552155-1178258983.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908111333212-2035334815.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908113042426-432678021.png">
+<meta property="article:published_time" content="2020-09-23T06:37:15.000Z">
+<meta property="article:modified_time" content="2020-09-23T06:45:10.513Z">
+<meta property="article:author" content="请给我一杯冰可乐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png"><title>从入门到入土JS知识(一)：关系操作符和相等操作符 | BlueBerry's Blog</title><link ref="canonical" href="http://example.com/child/2020/09/23/comparison-operation/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":false},
+  reward: true,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry's Blog" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/music/"><span class="header-nav-submenu-item__icon"><i class="fas fa-headphones-alt"></i></span><span class="header-nav-submenu-item__text">音乐</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry's Blog</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">从入门到入土JS知识(一)：关系操作符和相等操作符</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-23</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">17分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="前言"   >
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
+      <p>在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} == {} 或 {} &gt; {} 输出false，为什么{} &gt;= {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。</p>
+<p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png" >
+      </p>
+
+        <h2 id="JS操作符知识回顾"   >
+          <a href="#JS操作符知识回顾" class="heading-link"><i class="fas fa-link"></i></a>JS操作符知识回顾</h2>
+      
+        <h3 id="关系运算符"   >
+          <a href="#关系运算符" class="heading-link"><i class="fas fa-link"></i></a>关系运算符</h3>
+      <p>比较两个操作数的值，关系操作符会先将操作数转为<code>原始值</code>，使它们类型相同，再进行比较运算。</p>
+
+        <h4 id="关系操作符的比较规则"   >
+          <a href="#关系操作符的比较规则" class="heading-link"><i class="fas fa-link"></i></a>关系操作符的比较规则</h4>
+      <blockquote>
+<p>小于、大于、小于等于、大于等于这些关系操作符进行比较操作时，与ECMAScript的其他操作符一样，当关系操作符的操作数使用了非数值时，也要进行数据转换或完成某些奇怪的操作。其中这些奇怪的操作需要遵守以下对应的规则:</p>
+</blockquote>
+<ul>
+<li><p>如果两个操作数是数值，则执行数值比较。</p>
+</li>
+<li><p>如果两个操作数是字符串，则比较两个字符串对应的字符串编码值。</p>
+</li>
+<li><p>如果一个操作数是数值，则将另一个操作数转换为数值，然后执行数值比较。</p>
+</li>
+<li><p>如果一个操作数是布尔值，则先将其转换为数值，然后再执行比较。</p>
+</li>
+<li><p>如果一个操作数是对象，则调用这个对象的valueOf()方法，用得到的结果按照前面的规则执行比较。如果对象没有valueOf()方法，则调用toString()方法，并用得到的结果根据前面的规则执行比较。</p>
+</li>
+<li><p>任何操作数与NaN进行关系比较，结构都是false。</p>
+</li>
+</ul>
+
+        <h4 id="关系比较实例分析"   >
+          <a href="#关系比较实例分析" class="heading-link"><i class="fas fa-link"></i></a>关系比较实例分析</h4>
+      <blockquote>
+<p>为了探究对象操作数的关系比较，这里就省去了普通操作数的比较实例分析。感兴趣的小伙伴可以查阅mdn中的定义与实例分析，以下将由单一性到多元性的实例去剖析关系操作符在对象中的规则机制。</p>
+</blockquote>
+
+        <h5 id="单一对象—-function"   >
+          <a href="#单一对象—-function" class="heading-link"><i class="fas fa-link"></i></a>单一对象—&#123;&#125; || [] || function()&#123;&#125;</h5>
+      <blockquote>
+<p>普通对象{}、数组对象[]、函数对象function(){}都是对象，单一性对象的关系操作符运行机制是一致的(单一性对象测试，需要测试数组对象、函数对象时，可以把普通对象置换成对应测试对象即可)，因此此处仅展示普通对象的关系比较例子。</p>
+</blockquote>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; &gt; &#123;&#125;&quot;</span>, &#123;&#125; &gt; &#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; &lt; &#123;&#125;&quot;</span>, &#123;&#125; &lt; &#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; &gt;= &#123;&#125;&quot;</span>, &#123;&#125; &gt;= &#123;&#125;); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; &lt;= &#123;&#125;&quot;</span>, &#123;&#125; &lt;= &#123;&#125;); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></div></figure>
+
+        <h5 id="单一性测试结果"   >
+          <a href="#单一性测试结果" class="heading-link"><i class="fas fa-link"></i></a>单一性测试结果</h5>
+      <p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907174642219-806230023.png" >
+      </p>
+
+        <h5 id="单一性测试分析"   >
+          <a href="#单一性测试分析" class="heading-link"><i class="fas fa-link"></i></a>单一性测试分析</h5>
+      <p>遵循关系操作符的比较规则，当操作数是对象时，调用对象的valueOf()方法获取原始值进行比较，或者调用toString()方法获取对象字符串再进行比较。我们分别打印对象的valueOf()、toString()获取到的值，如下图所示：</p>
+<p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907182443630-1791452558.png" >
+      </p>
+<p>因为{}的valueOf()方法返回值是对象本身(默认情况下，如果对象没有原始值，则valueOf将返回对象本身)，因此我们可以比较{}对象的toString()方法返回的字符串大小，而单一性对象关系比较时，返回字符串一致，所以就产生了以上的测试结果。</p>
+
+        <h5 id="多元对象—-amp-amp-amp-amp-function"   >
+          <a href="#多元对象—-amp-amp-amp-amp-function" class="heading-link"><i class="fas fa-link"></i></a>多元对象—&#123;&#125; &amp;&amp; [] &amp;&amp; function()&#123;&#125;</h5>
+      <blockquote>
+<p>普通对象{}、数组对象[]、函数对象function(){}都是对象，多元性对象的关系操作符运行机制是一致的(多元性对象测试，需要测试其余关系操作符时，可以把大于操作符置换成对应的关系比较符)，因此此处仅展示多元性对象大于操作符的比较例子。</p>
+</blockquote>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; &gt; []&#x27;</span>, &#123;&#125; &gt; []); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; &gt; function()&#123;&#125;&#x27;</span>, &#123;&#125; &gt; <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] &gt; function()&#123;&#125;&#x27;</span>, [] &gt; <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] &gt; &#123;&#125;&#x27;</span>, [] &gt; &#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;function()&#123;&#125; &gt; &#123;&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; &gt; &#123;&#125;); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="多元性测试结果"   >
+          <a href="#多元性测试结果" class="heading-link"><i class="fas fa-link"></i></a>多元性测试结果</h5>
+      <p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907184013881-134313189.png" >
+      </p>
+
+        <h5 id="多元性测试分析"   >
+          <a href="#多元性测试分析" class="heading-link"><i class="fas fa-link"></i></a>多元性测试分析</h5>
+      <p>仍然遵循关系操作符的比较规则，分别比较普通对象{}、数组对象[]、函数对象function(){}的valueOf()方法或者toString()方法，我们分别打印三个对象的方法值如下：</p>
+<p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200915164045495-2078530855.png" >
+      </p>
+<p>由打印的方法值可以了解到，三类对象的valueOf()方法都是返回自身对象原始值，因此我们可以根据toString()方法获取到的字符串进行字符串关系比较，而字符串比较是使用基于标准字典的Unicode值来进行比较的，我们分别对普通对象、数组对象、函数对象的toString()方法返回的字符串进行Unicode转码，Unicode分别如下图所示：</p>
+<p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908101750929-415747854.png" >
+      </p>
+<p>根据Unicode的大小可知，函数对象&gt;普通对象&gt;数组对象，所以产生了以上的测试结果。</p>
+
+        <h3 id="相等运算符"   >
+          <a href="#相等运算符" class="heading-link"><i class="fas fa-link"></i></a>相等运算符</h3>
+      <blockquote>
+<p>判断两个操作数是否相等，相对于相等比较，ECMScript的解决方案提供了两组操作符(解决早期对象相等比较将对象转换成相似类型的合理性问题): 相等和不相等————先转换再比较，全等和不全等————仅比较而不转换。</p>
+</blockquote>
+
+        <h4 id="相等和不想等"   >
+          <a href="#相等和不想等" class="heading-link"><i class="fas fa-link"></i></a>相等和不想等</h4>
+      <blockquote>
+<p>相等和不相等操作符都会先转换操作数(强制转换操作数),然后再比较两个操作数转换后的相等性。在比较两个操作数的大小时，相等和不相等需要遵守以下对应的规则:</p>
+</blockquote>
+<ul>
+<li><p>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值(false转换为0，true转换为1)。</p>
+</li>
+<li><p>如果一个操作数是字符串，另一个操作数是数值，在比较相等性之前先将字符串转换为数值。</p>
+</li>
+<li><p>如果一个操作数是对象，另一个操作数不是，则调用对象的valueOf()方法，再进行相等性比较。</p>
+</li>
+<li><p>如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都是指向同一个对象，则返回true，否则返回false。</p>
+</li>
+<li><p>null和undefined是相等的，且不能将null和undefined转换为其他值。</p>
+</li>
+<li><p>如果有一个操作数是NaN，相等操作符返回false，不相等操作符返回true(NaN不等于NaN)。</p>
+</li>
+</ul>
+
+        <h4 id="相等比较实例分析"   >
+          <a href="#相等比较实例分析" class="heading-link"><i class="fas fa-link"></i></a>相等比较实例分析</h4>
+      <blockquote>
+<p>相等比较和不相等比较，实例分析中依旧是分为单一性对象比较和多元性对象比较，由于单一和多元的运行机制完全参照相等比较的规则，所以下面将统一分析两类对象比较。</p>
+</blockquote>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;================单一性对象比较==============&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; == &#123;&#125;&quot;</span>, &#123;&#125; == &#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; != &#123;&#125;&#x27;</span>, &#123;&#125; != &#123;&#125;); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;function()&#123;&#125; == function()&#123;&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; == <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; ); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;function()&#123;&#125; != function()&#123;&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; != <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; ); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] == []&#x27;</span>, [] == [] ); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] != []&#x27;</span>, [] != [] ); <span class="comment">// 输出：true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;================多元性对象比较==============&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; == []&#x27;</span>, &#123;&#125; == []); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; != []&#x27;</span>, &#123;&#125; != []); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; == function()&#123;&#125;&#x27;</span>, &#123;&#125; == <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; != function()&#123;&#125;&#x27;</span>, &#123;&#125; != <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] == function()&#123;&#125;&#x27;</span>, [] == <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] != function()&#123;&#125;&#x27;</span>, [] != <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="相等测试结果"   >
+          <a href="#相等测试结果" class="heading-link"><i class="fas fa-link"></i></a>相等测试结果</h5>
+      <p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908105552155-1178258983.png" >
+      </p>
+
+        <h5 id="相等测试分析"   >
+          <a href="#相等测试分析" class="heading-link"><i class="fas fa-link"></i></a>相等测试分析</h5>
+      <p>数组和函数也是对象，遵循这相等比较的规则，两个操作数都是对象时，比较两个对象<code>是不是</code>同一个对象？对啊，难道{}和{}不是同一个对象吗？所以这里的是不是究竟是个什么含义呢？如果深知javascript内存管理的，就会知晓当创建一个变量对象时，javascript内存会为这个变量对象创建一个堆内存地址来储存该变量对象，同时也会创建一个指向堆内存地址的栈内存指针(类比了下C中的指针)。javascript的变量对象的内存管理机制如下图所示：</p>
+<p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908111333212-2035334815.png" >
+      </p>
+<p>根据javascript的内存管理机制，如果两操作数为对象类型，JavaScript会比较其内部引用地址，仅当他们在内存中引用不同对象时不相等；这样就会产生以上的测试结果。</p>
+
+        <h4 id="全等和不全等"   >
+          <a href="#全等和不全等" class="heading-link"><i class="fas fa-link"></i></a>全等和不全等</h4>
+      <blockquote>
+<p>只有在两个操作数未经转换就相等的情况下就返回true。需要注意的是，在相等操作中<code>null == undefined</code>返回true，那是因为它们是类似的值，但是在全等操作中<code>null === undefined</code>返回false，那是因为它们是不同类型的值。</p>
+</blockquote>
+
+        <h4 id="全等比较实例分析"   >
+          <a href="#全等比较实例分析" class="heading-link"><i class="fas fa-link"></i></a>全等比较实例分析</h4>
+      <blockquote>
+<p>全等比较和不全等比较基本上和相等比较差不多，区别在于全等比较不转换类型，直接比较且是严格的比较。比较依旧是分为单一性对象和多元性对象实例，全等比较实例如下。</p>
+</blockquote>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;================单一性对象比较==============&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;&#123;&#125; === &#123;&#125;&quot;</span>, &#123;&#125; === &#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; !== &#123;&#125;&#x27;</span>, &#123;&#125; !== &#123;&#125;); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;function()&#123;&#125; === function()&#123;&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; === <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; );<span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;function()&#123;&#125; !== function()&#123;&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; !== <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; ); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] === []&#x27;</span>, [] === [] ); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] !== []&#x27;</span>, [] !== [] ); <span class="comment">// 输出：true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;================多元性对象比较==============&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; === []&#x27;</span>, &#123;&#125; === []); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; !== []&#x27;</span>, &#123;&#125; !== []); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; === function()&#123;&#125;&#x27;</span>, &#123;&#125; === <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;&#123;&#125; !== function()&#123;&#125;&#x27;</span>, &#123;&#125; !== <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] === function()&#123;&#125;&#x27;</span>, [] === <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;[] !== function()&#123;&#125;&#x27;</span>, [] !== <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">// 输出：true</span></span><br></pre></td></tr></table></div></figure>
+
+
+        <h5 id="全等测试结果"   >
+          <a href="#全等测试结果" class="heading-link"><i class="fas fa-link"></i></a>全等测试结果</h5>
+      <p>
+        <img   class="lazyload lazyload-block"
+          src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908113042426-432678021.png" >
+      </p>
+
+        <h5 id="全等测试分析"   >
+          <a href="#全等测试分析" class="heading-link"><i class="fas fa-link"></i></a>全等测试分析</h5>
+      <p>全等比较不转换而直接比较，那么{}、[]、function(){}三者对象是不同类型的值，所以它们不全等；但是为什么{}和{}也不全等呢？对啊，Why？那是因为上一部分说到的javascript的内存管理机制的原因所在，当两个操作数都是对象，javascript会比较其内部引用地址(栈内存指针)，当且仅当它们的引用指向内存(堆内存地址)中的相同对象(区域)时才相等，即它们在栈内存中的引用地址相同。因此就会产生以上的测试结果。</p>
+
+        <h2 id="参考文献"   >
+          <a href="#参考文献" class="heading-link"><i class="fas fa-link"></i></a>参考文献</h2>
+      <ol>
+<li><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Comparison_Operators" >https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Comparison_Operators</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</li>
+<li><p>javascript高级程序设计(第3版)</p>
+</li>
+</ol>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com/child">请给我一杯冰可乐</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://example.com/child/2020/09/23/comparison-operation/">http://example.com/child/2020/09/23/comparison-operation/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/assets/zfb_pay.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="/assets/wx_pay.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/09/23/mockjs-application/"><span class="paginator-prev__text">前端开发：mock.js的简单应用（生成随机数据，拦截 Ajax 请求）</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="disqus_thread"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
+          前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE"><span class="toc-number">2.</span> <span class="toc-text">
+          JS操作符知识回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.1.</span> <span class="toc-text">
+          关系运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E6%AF%94%E8%BE%83%E8%A7%84%E5%88%99"><span class="toc-number">2.1.1.</span> <span class="toc-text">
+          关系操作符的比较规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E6%AF%94%E8%BE%83%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.</span> <span class="toc-text">
+          关系比较实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E5%AF%B9%E8%B1%A1%E2%80%94-function"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">
+          单一对象—&amp;#123;&amp;#125; || [] || function()&amp;#123;&amp;#125;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E6%80%A7%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">
+          单一性测试结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%B8%80%E6%80%A7%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">
+          单一性测试分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E5%AF%B9%E8%B1%A1%E2%80%94-amp-amp-amp-amp-function"><span class="toc-number">2.1.2.4.</span> <span class="toc-text">
+          多元对象—&amp;#123;&amp;#125; &amp;&amp; [] &amp;&amp; function()&amp;#123;&amp;#125;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E6%80%A7%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.1.2.5.</span> <span class="toc-text">
+          多元性测试结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E6%80%A7%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.6.</span> <span class="toc-text">
+          多元性测试分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.2.</span> <span class="toc-text">
+          相等运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89%E5%92%8C%E4%B8%8D%E6%83%B3%E7%AD%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">
+          相等和不想等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89%E6%AF%94%E8%BE%83%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">2.2.2.</span> <span class="toc-text">
+          相等比较实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">
+          相等测试结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">
+          相等测试分析</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%AD%89%E5%92%8C%E4%B8%8D%E5%85%A8%E7%AD%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">
+          全等和不全等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E7%AD%89%E6%AF%94%E8%BE%83%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">2.2.4.</span> <span class="toc-text">
+          全等比较实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A8%E7%AD%89%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">
+          全等测试结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A8%E7%AD%89%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">
+          全等测试分析</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">3.</span> <span class="toc-text">
+          参考文献</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.png" alt="avatar"></div><p class="sidebar-ov-author__text">热爱生活，热爱技术</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/cole31415" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://juejin.im/user/1151943919287197" target="_blank" rel="noopener" data-popover="掘金" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">掘金</span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/ke-le-22-56-54" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知乎</span></a><a class="sidebar-ov-social-item" href="https://www.cnblogs.com/BlueBerryCode/" target="_blank" rel="noopener" data-popover="博客园" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">博客园</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>请给我一杯冰可乐</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="100" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script>function loadDisqus () {
+  if (!document.getElementById('disqus_thread')) {
+    return;
+  }
+  if (window.DISQUS) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.url = 'http://example.com/child/2020/09/23/comparison-operation/';
+        this.page.identifier = '2020/09/23/comparison-operation/';
+        this.page.title = '从入门到入土JS知识(一)：关系操作符和相等操作符';
+      }
+    });
+  } else {
+    var d = document;
+    var sc = d.createElement('script');
+    var se = d.createElement('script');
+
+    if (true) {
+      sc.src = 'https://blueberrycode.disqus.com/count.js';
+      sc.id = 'dsq-count-scr';
+      sc.async = true;
+      if (false) {
+        sc.setAttribute('data-pjax', '');
+      }
+      (d.head || d.body).appendChild(sc);
+    }
+    se.src = 'https://blueberrycode.disqus.com/embed.js';
+    (d.head || d.body).appendChild(se);
+  }
+}
+
+if (false) {
+  loadDisqus();
+} else {
+  window.addEventListener('DOMContentLoaded', loadDisqus, false);
+}</script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
