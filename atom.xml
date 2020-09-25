@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T05:12:42.451Z</updated>
+  <updated>2020-09-25T06:57:51.295Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 git stash pop 后git出现&quot;Another git process seems to be running in this repository......&quot;错误信息</title>
+    <link href="http://example.com/child/2020/09/25/git-process-running-in-repository/"/>
+    <id>http://example.com/child/2020/09/25/git-process-running-in-repository/</id>
+    <published>2020-09-25T06:50:19.000Z</published>
+    <updated>2020-09-25T06:57:51.295Z</updated>
+    
+    
+    <summary type="html">当在 dev 开发分支开发新功能时，master 分支出现紧急 bug 需要修复，命令 git stash 就可以暂存当前 dev 分支的代码改动，切换到 master 分支解决紧急 bug。今天遇到一个 git 错误信息，是我在切回 dev 开发分支后把暂存的代码改动复原，但是代码复原后却无法提交，出现了 git 进程冲突的问题。具体错误信息如下:&quot;Another git process seems to be running in this repository, e.g.an editor opened by ‘git commit’. Please make sure all processes are terminated then try again. If it still fails, a git process may have crashed in this repository earlier:remove the file manually to continue.&quot;经过错误信息的解决方案调研，找到了具体有效的解决方案。</summary>
+    
+    
+    
+    <category term="Git" scheme="http://example.com/child/categories/Git/"/>
+    
+    
+    <category term="进程冲突" scheme="http://example.com/child/tags/%E8%BF%9B%E7%A8%8B%E5%86%B2%E7%AA%81/"/>
+    
+    <category term="repository崩溃" scheme="http://example.com/child/tags/repository%E5%B4%A9%E6%BA%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决无法访问此网址，网址永久性地移动到新网址的问题（ERR_TUNNEL_CONNECTION_FAILED）</title>
+    <link href="http://example.com/child/2020/09/25/connection-failed/"/>
+    <id>http://example.com/child/2020/09/25/connection-failed/</id>
+    <published>2020-09-25T06:40:10.000Z</published>
+    <updated>2020-09-25T06:48:26.206Z</updated>
+    
+    
+    <summary type="html">网址无缘无故出现访问失败的问题，昨天还可以轻松访问，今天就出现如下图的问题，经过搜索报错信息，找到了较有好的解决办法，现在一起分享给需要的朋友们。</summary>
+    
+    
+    
+    <category term="Internet" scheme="http://example.com/child/categories/Internet/"/>
+    
+    
+    <category term="connection" scheme="http://example.com/child/tags/connection/"/>
+    
+    <category term="inaccessible" scheme="http://example.com/child/tags/inaccessible/"/>
+    
+  </entry>
   
   <entry>
     <title>解决React路由URL中hash(#)部分的显示 、browserHistory打包后浏览器刷新页面出现404的问题</title>
@@ -93,9 +135,9 @@
     
     <category term="React" scheme="http://example.com/child/categories/React/"/>
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
