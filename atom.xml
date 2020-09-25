@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T07:29:11.149Z</updated>
+  <updated>2020-09-25T08:05:52.139Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H5页面常见开发问题总结</title>
+    <link href="http://example.com/child/2020/09/25/h5-bug-solution/"/>
+    <id>http://example.com/child/2020/09/25/h5-bug-solution/</id>
+    <published>2020-09-25T07:36:08.000Z</published>
+    <updated>2020-09-25T08:05:52.139Z</updated>
+    
+    
+    <summary type="html">最近在开发 H5，就在开发过程中发现 H5 存在着一些坑，所以就总结一下在开发过程中遇到的坑以及解决办法，本文会持续的更新，同时也欢迎大家一起评论分享 H5 开发中遇到的坑、解决办法等。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
+    
+    
+    <category term="微信分享" scheme="http://example.com/child/tags/%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB/"/>
+    
+    <category term="input-keyboard" scheme="http://example.com/child/tags/input-keyboard/"/>
+    
+    <category term="QRCode" scheme="http://example.com/child/tags/QRCode/"/>
+    
+    <category term="video-level" scheme="http://example.com/child/tags/video-level/"/>
+    
+    <category term="首屏加载" scheme="http://example.com/child/tags/%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript判断客户端是Android还是IOS，判断浏览器类型</title>
@@ -116,9 +145,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="URL" scheme="http://example.com/child/tags/URL/"/>
@@ -179,9 +208,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
@@ -225,9 +254,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="path-alias" scheme="http://example.com/child/tags/path-alias/"/>
@@ -317,9 +346,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="crop" scheme="http://example.com/child/tags/crop/"/>
