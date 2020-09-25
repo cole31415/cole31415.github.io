@@ -64,9 +64,9 @@
     
     <category term="React" scheme="http://example.com/child/categories/React/"/>
     
-    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
     
     <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
@@ -78,10 +78,10 @@
     <link href="http://example.com/child/2020/09/23/dynamic-class-name/"/>
     <id>http://example.com/child/2020/09/23/dynamic-class-name/</id>
     <published>2020-09-23T01:49:10.000Z</published>
-    <updated>2020-09-23T02:18:38.190Z</updated>
+    <updated>2020-09-25T04:03:03.977Z</updated>
     
     
-    <summary type="html">在react中添加动态的css时，传统的方式较为繁琐，今天刚好学习到一个模块库可以便捷的解决这个问题。对的，它就是“classnames”。</summary>
+    <summary type="html">在项目中根据条件动态的加载 CSS 样式该如何去实现呢?在 React 中添加动态的 CSS 时，传统的方式较为繁琐，今天刚好学习到一个模块库可以便捷的解决这个问题。对的，它就是“classnames”。</summary>
     
     
     
