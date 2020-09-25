@@ -160,7 +160,7 @@
     <link href="http://example.com/child/2020/09/22/top-fixed-sliding-nav/"/>
     <id>http://example.com/child/2020/09/22/top-fixed-sliding-nav/</id>
     <published>2020-09-22T08:26:54.000Z</published>
-    <updated>2020-09-22T09:17:39.587Z</updated>
+    <updated>2020-09-25T03:33:49.011Z</updated>
     
     
     <summary type="html">基于React的框架开发一个顶部固定滑动式的酷炫导航栏，当导航栏置顶时，导航栏沉浸在背景图片里；当鼠标滑动滚轮时，导航栏固定滑动并展示下拉样式。</summary>
@@ -169,7 +169,7 @@
     
     <category term="React" scheme="http://example.com/child/categories/React/"/>
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
     
     <category term="fixed-navbar" scheme="http://example.com/child/tags/fixed-navbar/"/>
@@ -183,7 +183,7 @@
     <link href="http://example.com/child/2020/09/22/crop-upload/"/>
     <id>http://example.com/child/2020/09/22/crop-upload/</id>
     <published>2020-09-22T07:16:01.000Z</published>
-    <updated>2020-09-25T02:50:31.190Z</updated>
+    <updated>2020-09-25T03:36:07.516Z</updated>
     
     
     <summary type="html">在开发后台系统时，遇到一个上传图片并数量级别可控制的需求，经过技术调研最终确定了使用 antd-img-crop 搭配 Ant design 的 Upload 实现业务需求。本文主要讲述 React 配合 Ant design 以及 antd-img-crop 第三方库实现一个可控的图片上传功能。</summary>
