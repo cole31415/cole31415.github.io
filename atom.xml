@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-23T06:45:10.513Z</updated>
+  <updated>2020-09-25T05:03:12.609Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -21,13 +21,19 @@
     <link href="http://example.com/child/2020/09/23/comparison-operation/"/>
     <id>http://example.com/child/2020/09/23/comparison-operation/</id>
     <published>2020-09-23T06:37:15.000Z</published>
-    <updated>2020-09-23T06:45:10.513Z</updated>
+    <updated>2020-09-25T05:03:12.609Z</updated>
     
     
     <summary type="html">在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} == {} 或 {} &gt; {} 输出false，为什么{} &gt;= {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。</summary>
     
     
     
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="关系操作符" scheme="http://example.com/child/tags/%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
+    
+    <category term="相等操作符" scheme="http://example.com/child/tags/%E7%9B%B8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
     
   </entry>
   
@@ -62,9 +68,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
@@ -108,9 +114,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="path-alias" scheme="http://example.com/child/tags/path-alias/"/>
@@ -200,9 +206,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="crop" scheme="http://example.com/child/tags/crop/"/>
