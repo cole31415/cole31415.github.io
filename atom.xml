@@ -36,7 +36,7 @@
     <link href="http://example.com/child/2020/09/23/mockjs-application/"/>
     <id>http://example.com/child/2020/09/23/mockjs-application/</id>
     <published>2020-09-23T02:37:57.000Z</published>
-    <updated>2020-09-23T03:05:55.333Z</updated>
+    <updated>2020-09-25T04:55:51.539Z</updated>
     
     
     <summary type="html">在前端开发过程中，后端接口还没有完全开发完成时，前端开发人员就需要学会自己模拟后端接口数据，更快更好的完成开发任务。模拟后端接口数据的 js 库有很多，今天就简单就简单的分享下 mock.js 在前端开发的应用（嘿嘿，毕竟这个 mock 应用的开发人员较多）。</summary>
