@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T05:03:12.609Z</updated>
+  <updated>2020-09-25T05:12:42.451Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决React路由URL中hash(#)部分的显示 、browserHistory打包后浏览器刷新页面出现404的问题</title>
+    <link href="http://example.com/child/2020/09/25/url-hash-404/"/>
+    <id>http://example.com/child/2020/09/25/url-hash-404/</id>
+    <published>2020-09-25T05:05:45.000Z</published>
+    <updated>2020-09-25T05:12:42.451Z</updated>
+    
+    
+    <summary type="html">在React项目中，我们需要采用它的路由库React-Router来进行页面跳转，React会根据路由URL来判断是哪个页面。常见的的URL有两种显示方式，一种是hashHistory的形式，形如：localhost:3000/#/free-lesson的路由，另一种是browserHistory的形式，形如：localhost:3000/person-center的真实URL路由。在实际项目中常常用真实的URL的方式，但是该形式存在一个隐藏的问题，就是项目打包后，浏览器页面刷新会出现404，为了解决这个问题，需要对服务器做简单的改动。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="URL" scheme="http://example.com/child/tags/URL/"/>
+    
+    <category term="nginx" scheme="http://example.com/child/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>从入门到入土JS知识(一)：关系操作符和相等操作符</title>
@@ -68,9 +91,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
@@ -114,9 +137,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="path-alias" scheme="http://example.com/child/tags/path-alias/"/>
@@ -206,9 +229,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="crop" scheme="http://example.com/child/tags/crop/"/>
