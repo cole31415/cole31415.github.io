@@ -116,21 +116,29 @@
   </entry>
   
   <entry>
-    <title>基于create-react-app脚手架，按需加载antd组件以及less样式</title>
+    <title>基于create-react-app脚手架，按需加载Ant design组件以及less样式</title>
     <link href="http://example.com/child/2020/09/22/antd-config-demand-loading/"/>
     <id>http://example.com/child/2020/09/22/antd-config-demand-loading/</id>
     <published>2020-09-22T09:45:04.000Z</published>
-    <updated>2020-09-22T10:37:52.555Z</updated>
+    <updated>2020-09-25T03:47:20.041Z</updated>
     
     
-    <summary type="html">为了更好的书写css样式，在react中引入less，在网上查询了许多关于react引入less样式文件的资料，大多数都是需要在react项目中npm run eject暴露出底层文件，然后在底层文件中修改dev-env的环境配置。在请教了大佬后知道可以根据antd官网文档中的高级配置来配备less，通过react-app-rewired来对默认配置进行自定义化，在新的@2.x版本中还需要下载customize-cra。这样我们就可以在项目的根目录下创建一个配置文件来修改默认的配置了。详细介绍可以参考antd官方网站的高级配置文档。</summary>
+    <summary type="html">为了更好的书写 CSS 样式，在 React 中引入 less，在网上查询了许多关于 React 引入 less 样式文件的资料，大多数都是需要在 React 项目中 npm run eject 暴露出底层文件，然后在底层文件中修改 dev-env 的环境配置。在请教了大佬后知道可以根据 Ant design 官网文档中的高级配置来配备 less，通过 react-app-rewired 来对默认配置进行自定义化，在新的@2.x 版本中还需要下载 customize-cra。这样我们就可以在项目的根目录下创建一个配置文件来修改默认的配置了。详细介绍可以参考 Ant design 官方网站的高级配置文档。</summary>
     
     
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
     
     
     <category term="demand-loading" scheme="http://example.com/child/tags/demand-loading/"/>
     
     <category term="scaffold" scheme="http://example.com/child/tags/scaffold/"/>
+    
+    <category term="customize-cra" scheme="http://example.com/child/tags/customize-cra/"/>
+    
+    <category term="less" scheme="http://example.com/child/tags/less/"/>
     
   </entry>
   
@@ -139,7 +147,7 @@
     <link href="http://example.com/child/2020/09/22/JSON-perse-failure/"/>
     <id>http://example.com/child/2020/09/22/JSON-perse-failure/</id>
     <published>2020-09-22T09:22:37.000Z</published>
-    <updated>2020-09-22T09:42:00.667Z</updated>
+    <updated>2020-09-25T03:40:03.345Z</updated>
     
     
     <summary type="html">最近更新了一次node，但是更新后npm的命令总是会报Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;npm ERR! Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;的错误信息，导致无法进行正常的npm install。经过半天的错误信息搜索，找到了较为友好的解决办法。</summary>
