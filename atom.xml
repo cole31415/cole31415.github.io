@@ -51,14 +51,14 @@
   </entry>
   
   <entry>
-    <title>自定义化antd的Modal组件并适配PC端部分分辨率</title>
+    <title>自定义化Ant design的Modal组件并适配PC端部分分辨率</title>
     <link href="http://example.com/child/2020/09/23/customize-antd-modal/"/>
     <id>http://example.com/child/2020/09/23/customize-antd-modal/</id>
     <published>2020-09-23T02:21:24.000Z</published>
-    <updated>2020-09-24T04:03:47.748Z</updated>
+    <updated>2020-09-25T04:32:14.837Z</updated>
     
     
-    <summary type="html">近期在做页面的优化，需要对 antd 的 Modal 组件模块进行精细的调优，简单地说就是给 Modal 二次美妆，提升用户的体验感。在此分享一下自己在实际逻辑代码中对美化 Modal 的理解，并用简单生动的 demo 来展示学习成果。</summary>
+    <summary type="html">近期在做页面的优化，需要对 Ant design 的 Modal 组件模块进行精细的调优，简单地说就是给 Modal 二次美妆，提升用户的体验感。在此分享一下自己在实际逻辑代码中对美化 Modal 的理解，并用简单生动的 demo 来展示学习成果。</summary>
     
     
     
@@ -70,6 +70,8 @@
     
     
     <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
+    
+    <category term="Modal" scheme="http://example.com/child/tags/Modal/"/>
     
   </entry>
   
