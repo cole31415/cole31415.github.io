@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T06:57:51.295Z</updated>
+  <updated>2020-09-25T07:29:11.149Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Javascript判断客户端是Android还是IOS，判断浏览器类型</title>
+    <link href="http://example.com/child/2020/09/25/judgment-browser-types/"/>
+    <id>http://example.com/child/2020/09/25/judgment-browser-types/</id>
+    <published>2020-09-25T07:21:09.000Z</published>
+    <updated>2020-09-25T07:29:11.149Z</updated>
+    
+    
+    <summary type="html">当在判断当前客户端是什么类型时，我们就可以根据客户端自带的 UA 标识，搭配正则判断机制来判断当前的客户端是什么设备。今天就分享下如何通过 Javascript 来获取客户端的 UA 标识，并判断客户端类型。</summary>
+    
+    
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
+    
+    
+    <category term="browser" scheme="http://example.com/child/tags/browser/"/>
+    
+    <category term="userAgent" scheme="http://example.com/child/tags/userAgent/"/>
+    
+    <category term="Client" scheme="http://example.com/child/tags/Client/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决React中打开App或者下载App问题</title>
+    <link href="http://example.com/child/2020/09/25/react-wake-app/"/>
+    <id>http://example.com/child/2020/09/25/react-wake-app/</id>
+    <published>2020-09-25T07:01:20.000Z</published>
+    <updated>2020-09-25T07:30:22.362Z</updated>
+    
+    
+    <summary type="html">最近在写 H5 页面，项目中有个唤醒 App 的功能，由于没有接触过这类功能，就去学习了一波大佬们的经验。在此分享出来和大家一起学习学习。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
+    
+    
+    <category term="唤醒" scheme="http://example.com/child/tags/%E5%94%A4%E9%86%92/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 git stash pop 后git出现&quot;Another git process seems to be running in this repository......&quot;错误信息</title>
@@ -70,9 +116,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="URL" scheme="http://example.com/child/tags/URL/"/>
@@ -133,11 +179,11 @@
     
     
     
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
@@ -179,9 +225,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="path-alias" scheme="http://example.com/child/tags/path-alias/"/>
@@ -271,9 +317,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="crop" scheme="http://example.com/child/tags/crop/"/>
