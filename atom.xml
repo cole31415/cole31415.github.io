@@ -64,9 +64,9 @@
     
     <category term="React" scheme="http://example.com/child/categories/React/"/>
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
@@ -99,7 +99,7 @@
     <link href="http://example.com/child/2020/09/22/config-path-alias/"/>
     <id>http://example.com/child/2020/09/22/config-path-alias/</id>
     <published>2020-09-22T10:13:02.000Z</published>
-    <updated>2020-09-22T10:38:00.784Z</updated>
+    <updated>2020-09-25T03:54:09.674Z</updated>
     
     
     <summary type="html">在 React 中，大多数业务逻辑都组件化；极大的减轻了代码的冗余度，如果组件的层次比较深的话，组件的 import 就比较费劲，在 import 时使用“../../components/test”的方式，组件的 import 就会稍显混乱、组件代码不容易维护。为了可高效的、快速的维护组件代码，废弃“../../”的组件引入方式，配置一个组件路径重写的方式引入组件。</summary>
