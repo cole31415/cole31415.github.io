@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/assets/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决微信H5静默授权获取code以及H5页面历史回退死循环问题">
+<meta property="og:url" content="http://example.com/child/2020/09/25/h5-silent-authorization/index.html">
+<meta property="og:site_name" content="BlueBerry&#39;s Blog">
+<meta property="og:description" content="近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429160334821-1245139619.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429161804024-1116175248.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429172213098-166203001.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429173054984-658873256.png">
+<meta property="article:published_time" content="2020-09-25T08:20:31.000Z">
+<meta property="article:modified_time" content="2020-09-25T08:34:10.661Z">
+<meta property="article:author" content="请给我一杯冰可乐">
+<meta property="article:tag" content="WxChat">
+<meta property="article:tag" content="code">
+<meta property="article:tag" content="endlessLoop">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429160334821-1245139619.png"><title>解决微信H5静默授权获取code以及H5页面历史回退死循环问题 | BlueBerry's Blog</title><link ref="canonical" href="http://example.com/child/2020/09/25/h5-silent-authorization/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":false},
+  reward: true,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry's Blog" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/music/"><span class="header-nav-submenu-item__icon"><i class="fas fa-headphones-alt"></i></span><span class="header-nav-submenu-item__text">音乐</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry's Blog</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">解决微信H5静默授权获取code以及H5页面历史回退死循环问题</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">848</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">5分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="前言"   >
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
+      <p>近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。</p>
+
+        <h2 id="初级方案原理"   >
+          <a href="#初级方案原理" class="heading-link"><i class="fas fa-link"></i></a>初级方案原理</h2>
+      <p>当时调研完官方文档后，发现授权流程是重定向的方式，就傻白甜的直接在需要微信 code 的页面直接获取 code 并跳转回当前页，这样就造成了页面获取死循环的 bug。为了解决获取 code 死循环的 bug，在获取 code 时，建立一个中间也获取微信的 code，code 获取后将 code 存储到 sessionStorage 里，最后再重定向回页面，具体流程如下图所示:</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429160334821-1245139619.png" >
+      </p>
+
+        <h3 id="初级方案路由-history"   >
+          <a href="#初级方案路由-history" class="heading-link"><i class="fas fa-link"></i></a>初级方案路由 history</h3>
+      <p>从路由 history 可以看出，初级方案建立一个微信获取 code 的页面，于是在路由的 history 多了一层授权的路由，所以返回作品列表需要连续返回两次才会回到列表页。路由 history 堆栈表如下图所示:</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429161804024-1116175248.png" >
+      </p>
+
+        <h2 id="终极方案啊原理"   >
+          <a href="#终极方案啊原理" class="heading-link"><i class="fas fa-link"></i></a>终极方案啊原理</h2>
+      <p>根据初级方案的授权模式进行改动，进入作品详情页判断 UrlCode 和 localCode 是否都有值，值为空或者 null，获取微信 code。当 urlCode 有值时，执行 history.goback()，这样既可以防止页面循环获取 code 刷新操作，又可以去除 history 中获取微信 code 的历史路由。具体流程示意图如下所示:</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429172213098-166203001.png" >
+      </p>
+
+        <h3 id="终极方案路由-history"   >
+          <a href="#终极方案路由-history" class="heading-link"><i class="fas fa-link"></i></a>终极方案路由 history</h3>
+      <p>终极方案是直接在当前的作品页获取 code 并跳转回作品页，免去了一层调用获取 code 页组件的路由。这样做会引起页面循环获取 code，所以需要判断 urlcode 和 localcode 来决定是否继续循环获取，还是做 history.goback()。具体的路由 history 堆栈表如下图所示:</p>
+<p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202004/1834510-20200429173054984-658873256.png" >
+      </p>
+
+        <h2 id="React-实现方案"   >
+          <a href="#React-实现方案" class="heading-link"><i class="fas fa-link"></i></a>React 实现方案</h2>
+      <p>理清了终极的微信静默授权登录实现方案，我们就可以根据思路来编写我们需要的功能代码了，个人在开发中是使用的 React-Hook，所以就微信授权这个功能，自定义了一个 useWxCode 的可用 HOOK。具体代码如下:</p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useEffect &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useHistory &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取用于微信授权的 code，卸载后会自动清除</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useWxCode = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> history = useHistory();</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> searchParams = <span class="keyword">new</span> URLSearchParams(<span class="built_in">window</span>.location.search);</span><br><span class="line">    <span class="keyword">const</span> urlCode = searchParams.get(<span class="string">&quot;code&quot;</span>);</span><br><span class="line">    <span class="keyword">const</span> localCode = sessionStorage.getItem(<span class="string">&quot;code&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!urlCode &amp;&amp; !localCode) &#123;</span><br><span class="line">      <span class="keyword">const</span> appid = <span class="string">&quot;xxxxxxxx&quot;</span>; <span class="comment">// 微信授权的公众号的appid</span></span><br><span class="line">      <span class="keyword">const</span> redirectUrl = <span class="built_in">encodeURIComponent</span>(<span class="built_in">window</span>.location.href);</span><br><span class="line">      <span class="built_in">window</span>.location.href = <span class="string">`https://open.weixin.qq.com/connect/oauth2/authorize?appid=<span class="subst">$&#123;appid&#125;</span>&amp;redirect_uri=<span class="subst">$&#123;redirectUrl&#125;</span>&amp;response_type=code&amp;scope=snsapi_base&amp;state=123#wechat_redirect`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (urlCode) &#123;</span><br><span class="line">      sessionStorage.setItem(<span class="string">&quot;code&quot;</span>, urlCode);</span><br><span class="line">      history.goBack();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> sessionStorage.removeItem(<span class="string">&quot;code&quot;</span>);</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> sessionStorage.getItem(<span class="string">&quot;code&quot;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></div></figure>
+
+<p>组件中获取授权的 code:</p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="comment">// 引入useWxCode.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; useWxCode &#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/useWxCode&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Test = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> code = useWxCode();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Test;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="参考文献"   >
+          <a href="#参考文献" class="heading-link"><i class="fas fa-link"></i></a>参考文献</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/wonyun/p/8984183.html" >微信静默授权增加浏览器历史记录导致跳转死循环的解决方案</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com/child">请给我一杯冰可乐</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://example.com/child/2020/09/25/h5-silent-authorization/">http://example.com/child/2020/09/25/h5-silent-authorization/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/child/tags/WxChat/">WxChat</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/child/tags/code/">code</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/child/tags/endlessLoop/">endlessLoop</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/assets/zfb_pay.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="/assets/wx_pay.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/09/25/js-two-decimal-places/"><span class="paginator-prev__text">JavaScript 保留两位小数</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="disqus_thread"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
+          前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E7%BA%A7%E6%96%B9%E6%A1%88%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">
+          初级方案原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E7%BA%A7%E6%96%B9%E6%A1%88%E8%B7%AF%E7%94%B1-history"><span class="toc-number">2.1.</span> <span class="toc-text">
+          初级方案路由 history</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88%E5%95%8A%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">
+          终极方案啊原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88%E8%B7%AF%E7%94%B1-history"><span class="toc-number">3.1.</span> <span class="toc-text">
+          终极方案路由 history</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">
+          React 实现方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">5.</span> <span class="toc-text">
+          参考文献</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.png" alt="avatar"></div><p class="sidebar-ov-author__text">热爱生活，热爱技术</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/cole31415" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://juejin.im/user/1151943919287197" target="_blank" rel="noopener" data-popover="掘金" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">掘金</span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/ke-le-22-56-54" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知乎</span></a><a class="sidebar-ov-social-item" href="https://www.cnblogs.com/BlueBerryCode/" target="_blank" rel="noopener" data-popover="博客园" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">博客园</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">17</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">36</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>请给我一杯冰可乐</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="100" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script>function loadDisqus () {
+  if (!document.getElementById('disqus_thread')) {
+    return;
+  }
+  if (window.DISQUS) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.url = 'http://example.com/child/2020/09/25/h5-silent-authorization/';
+        this.page.identifier = '2020/09/25/h5-silent-authorization/';
+        this.page.title = '解决微信H5静默授权获取code以及H5页面历史回退死循环问题';
+      }
+    });
+  } else {
+    var d = document;
+    var sc = d.createElement('script');
+    var se = d.createElement('script');
+
+    if (true) {
+      sc.src = 'https://blueberrycode.disqus.com/count.js';
+      sc.id = 'dsq-count-scr';
+      sc.async = true;
+      if (false) {
+        sc.setAttribute('data-pjax', '');
+      }
+      (d.head || d.body).appendChild(sc);
+    }
+    se.src = 'https://blueberrycode.disqus.com/embed.js';
+    (d.head || d.body).appendChild(se);
+  }
+}
+
+if (false) {
+  loadDisqus();
+} else {
+  window.addEventListener('DOMContentLoaded', loadDisqus, false);
+}</script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

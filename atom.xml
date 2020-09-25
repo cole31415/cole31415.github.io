@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T08:05:52.139Z</updated>
+  <updated>2020-09-25T08:34:10.661Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决微信H5静默授权获取code以及H5页面历史回退死循环问题</title>
+    <link href="http://example.com/child/2020/09/25/h5-silent-authorization/"/>
+    <id>http://example.com/child/2020/09/25/h5-silent-authorization/</id>
+    <published>2020-09-25T08:20:31.000Z</published>
+    <updated>2020-09-25T08:34:10.661Z</updated>
+    
+    
+    <summary type="html">近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
+    
+    
+    <category term="WxChat" scheme="http://example.com/child/tags/WxChat/"/>
+    
+    <category term="code" scheme="http://example.com/child/tags/code/"/>
+    
+    <category term="endlessLoop" scheme="http://example.com/child/tags/endlessLoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 保留两位小数</title>
+    <link href="http://example.com/child/2020/09/25/js-two-decimal-places/"/>
+    <id>http://example.com/child/2020/09/25/js-two-decimal-places/</id>
+    <published>2020-09-25T08:10:01.000Z</published>
+    <updated>2020-09-25T08:17:56.146Z</updated>
+    
+    
+    <summary type="html">在开发中展示点赞数时，当数量级超过 10000 后，需要使用更加简洁的小数式去显现数量（例如 1.22 万）。下面就给大家分享数量小数式后保留两位小数的实现方式。</summary>
+    
+    
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="decimal" scheme="http://example.com/child/tags/decimal/"/>
+    
+  </entry>
   
   <entry>
     <title>H5页面常见开发问题总结</title>
