@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-25T09:46:59.547Z</updated>
+  <updated>2020-09-27T01:49:55.288Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,138 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript异常报错处理:&quot;Uncaught TypeError:xxx is not a function&quot;</title>
+    <link href="http://example.com/child/2020/09/27/uncaught-typeError/"/>
+    <id>http://example.com/child/2020/09/27/uncaught-typeError/</id>
+    <published>2020-09-27T01:43:57.000Z</published>
+    <updated>2020-09-27T01:49:55.288Z</updated>
+    
+    
+    <summary type="html">页面报错 bug 是常有的事，我们可以根据错误 bug 提示关键性的去修复问题。依稀的记得之前有个小伙伴询问了一个 js 异常的错误 bug:&quot;Uncaught TypeError:xxx is not a function&quot;。这个错误问题定位处理起来很快，但是我却不知其所以然。为了弄清楚报错的深层面原因，去调研了关于错误的解决方案。学习吸取别人的经验，对这个常见的报错的原理有了新的认识，这次就分享总结 Uncaught TypeError 的错误原由以及解决方案。</summary>
+    
+    
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="Uncaught TypeError" scheme="http://example.com/child/tags/Uncaught-TypeError/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rematch的深入学习与实战应用（一），简易数字计数器</title>
+    <link href="http://example.com/child/2020/09/27/rematch-learning-actual/"/>
+    <id>http://example.com/child/2020/09/27/rematch-learning-actual/</id>
+    <published>2020-09-27T01:27:35.000Z</published>
+    <updated>2020-09-27T01:42:28.796Z</updated>
+    
+    
+    <summary type="html">近期在优化团队代码，发现 Redux 重复使用的代码过多。 经过调研发现了 Rematch 库：Redux 是一个出色的状态管理工具，并且有着健全的中间件生态以及出色的开发工具；Rematch 是没有 boilerplate 的 Redux 最佳实践。移除了声明 action 类型、action 创建函数、thunks、store 配置、mapDispatchToProps、sagas 等东西，大大简化了代码。故今天就来分享 Rematch 的用法。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="Rematch" scheme="http://example.com/child/categories/Rematch/"/>
+    
+    <category term="Redux" scheme="http://example.com/child/categories/Redux/"/>
+    
+    
+    <category term="counter" scheme="http://example.com/child/tags/counter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端学习之路，前端开发人员如何在团队中规范git commit提交记录</title>
+    <link href="http://example.com/child/2020/09/25/git-commit-specification/"/>
+    <id>http://example.com/child/2020/09/25/git-commit-specification/</id>
+    <published>2020-09-25T12:29:45.000Z</published>
+    <updated>2020-09-27T01:26:08.425Z</updated>
+    
+    
+    <summary type="html">近期在 review 团队的部分代码，对比个人初期与如今的 git 提交记录，发现初期的提交记录简直是五花八门，言不由衷，让人一打眼看去就觉得这写的什么东西。一个好的 git 提交记录既方便个人快速的了解自我的工作进度、快速的回退版本等，又便于团队之间的协同开发。故分享一下当前最为规范、流行的 git commit 提交规范，希望这次分享可以帮助到你。</summary>
+    
+    
+    
+    <category term="Git" scheme="http://example.com/child/categories/Git/"/>
+    
+    
+    <category term="commit" scheme="http://example.com/child/tags/commit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于AntV图表库的Ant deSign Charts图表展示的简单应用</title>
+    <link href="http://example.com/child/2020/09/25/ant-design-chart/"/>
+    <id>http://example.com/child/2020/09/25/ant-design-chart/</id>
+    <published>2020-09-25T12:18:13.000Z</published>
+    <updated>2020-09-25T12:23:48.531Z</updated>
+    
+    
+    <summary type="html">数据是我们每天都在接触的东西，我们需要清晰的了解去了解数据的变化趋势，就需要让数据可视化。最近在接触学习 Ant design 的社区精选组件，上一篇文章主要是讲了高德地图的应用，这次我们就来分享下 G2Plot 在 React 中实现可视化数据图表的简单应用。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Ant design实战学习系列" scheme="http://example.com/child/categories/Ant-design%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+    
+    
+    <category term="chart" scheme="http://example.com/child/tags/chart/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于React-Amap组件库的高德地图简单应用</title>
+    <link href="http://example.com/child/2020/09/25/react-amap/"/>
+    <id>http://example.com/child/2020/09/25/react-amap/</id>
+    <published>2020-09-25T12:07:17.000Z</published>
+    <updated>2020-09-25T12:26:04.105Z</updated>
+    
+    
+    <summary type="html">平常生活中，地图导航是必不可少的，最近在学习 Ant design，了解了下社区的精选组件，看到了与地图相关的精品组件库，高德地图组件库。所以记录下这次高德地图的使用心得，既可以提升自己的业务多样性，也可以分享给需要的小伙伴。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Ant design实战学习系列" scheme="http://example.com/child/categories/Ant-design%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/"/>
+    
+    
+    <category term="map" scheme="http://example.com/child/tags/map/"/>
+    
+    <category term="Gothe" scheme="http://example.com/child/tags/Gothe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高效的Coding，前端开发人员值得一看的前端开发工具</title>
+    <link href="http://example.com/child/2020/09/25/efficient-coding/"/>
+    <id>http://example.com/child/2020/09/25/efficient-coding/</id>
+    <published>2020-09-25T11:38:13.000Z</published>
+    <updated>2020-09-25T12:05:39.246Z</updated>
+    
+    
+    <summary type="html">看着我稚嫩的代码，今天我应该也可以过个快乐的儿童节吧，哈哈哈哈哈。既然是儿童节，那我就要给小伙伴们发发礼物，什么礼物呢？那就是小编在使用的前端开发工具，保证你会有个难忘的儿童节。好，下面就由我带大家一一的看看礼物吧。</summary>
+    
+    
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
+    
+    <category term="HTML" scheme="http://example.com/child/categories/HTML/"/>
+    
+    
+    <category term="plugin" scheme="http://example.com/child/tags/plugin/"/>
+    
+    <category term="tool" scheme="http://example.com/child/tags/tool/"/>
+    
+  </entry>
   
   <entry>
     <title>解决git pull拉取更新代码失败，unable to resolve reference ‘refs/remotes/origin/xxx分支名’:reference broken问题</title>
@@ -323,140 +455,6 @@
     <category term="关系操作符" scheme="http://example.com/child/tags/%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
     
     <category term="相等操作符" scheme="http://example.com/child/tags/%E7%9B%B8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端开发：mock.js的简单应用（生成随机数据，拦截 Ajax 请求）</title>
-    <link href="http://example.com/child/2020/09/23/mockjs-application/"/>
-    <id>http://example.com/child/2020/09/23/mockjs-application/</id>
-    <published>2020-09-23T02:37:57.000Z</published>
-    <updated>2020-09-25T04:55:51.539Z</updated>
-    
-    
-    <summary type="html">在前端开发过程中，后端接口还没有完全开发完成时，前端开发人员就需要学会自己模拟后端接口数据，更快更好的完成开发任务。模拟后端接口数据的 js 库有很多，今天就简单就简单的分享下 mock.js 在前端开发的应用（嘿嘿，毕竟这个 mock 应用的开发人员较多）。</summary>
-    
-    
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="模拟数据" scheme="http://example.com/child/tags/%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义化Ant design的Modal组件并适配PC端部分分辨率</title>
-    <link href="http://example.com/child/2020/09/23/customize-antd-modal/"/>
-    <id>http://example.com/child/2020/09/23/customize-antd-modal/</id>
-    <published>2020-09-23T02:21:24.000Z</published>
-    <updated>2020-09-25T04:32:14.837Z</updated>
-    
-    
-    <summary type="html">近期在做页面的优化，需要对 Ant design 的 Modal 组件模块进行精细的调优，简单地说就是给 Modal 二次美妆，提升用户的体验感。在此分享一下自己在实际逻辑代码中对美化 Modal 的理解，并用简单生动的 demo 来展示学习成果。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
-    
-    
-    <category term="适配PC" scheme="http://example.com/child/tags/%E9%80%82%E9%85%8DPC/"/>
-    
-    <category term="Modal" scheme="http://example.com/child/tags/Modal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用classnames模块库为react动态添加class类样式</title>
-    <link href="http://example.com/child/2020/09/23/dynamic-class-name/"/>
-    <id>http://example.com/child/2020/09/23/dynamic-class-name/</id>
-    <published>2020-09-23T01:49:10.000Z</published>
-    <updated>2020-09-25T04:03:03.977Z</updated>
-    
-    
-    <summary type="html">在项目中根据条件动态的加载 CSS 样式该如何去实现呢?在 React 中添加动态的 CSS 时，传统的方式较为繁琐，今天刚好学习到一个模块库可以便捷的解决这个问题。对的，它就是“classnames”。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
-    
-    
-    <category term="dynamic" scheme="http://example.com/child/tags/dynamic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React import配置路径别名&#39;@&#39;，简化import Component的方式</title>
-    <link href="http://example.com/child/2020/09/22/config-path-alias/"/>
-    <id>http://example.com/child/2020/09/22/config-path-alias/</id>
-    <published>2020-09-22T10:13:02.000Z</published>
-    <updated>2020-09-25T03:54:09.674Z</updated>
-    
-    
-    <summary type="html">在 React 中，大多数业务逻辑都组件化；极大的减轻了代码的冗余度，如果组件的层次比较深的话，组件的 import 就比较费劲，在 import 时使用“../../components/test”的方式，组件的 import 就会稍显混乱、组件代码不容易维护。为了可高效的、快速的维护组件代码，废弃“../../”的组件引入方式，配置一个组件路径重写的方式引入组件。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="path-alias" scheme="http://example.com/child/tags/path-alias/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于create-react-app脚手架，按需加载Ant design组件以及less样式</title>
-    <link href="http://example.com/child/2020/09/22/antd-config-demand-loading/"/>
-    <id>http://example.com/child/2020/09/22/antd-config-demand-loading/</id>
-    <published>2020-09-22T09:45:04.000Z</published>
-    <updated>2020-09-25T03:47:20.041Z</updated>
-    
-    
-    <summary type="html">为了更好的书写 CSS 样式，在 React 中引入 less，在网上查询了许多关于 React 引入 less 样式文件的资料，大多数都是需要在 React 项目中 npm run eject 暴露出底层文件，然后在底层文件中修改 dev-env 的环境配置。在请教了大佬后知道可以根据 Ant design 官网文档中的高级配置来配备 less，通过 react-app-rewired 来对默认配置进行自定义化，在新的@2.x 版本中还需要下载 customize-cra。这样我们就可以在项目的根目录下创建一个配置文件来修改默认的配置了。详细介绍可以参考 Ant design 官方网站的高级配置文档。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="CSS" scheme="http://example.com/child/categories/CSS/"/>
-    
-    
-    <category term="demand-loading" scheme="http://example.com/child/tags/demand-loading/"/>
-    
-    <category term="scaffold" scheme="http://example.com/child/tags/scaffold/"/>
-    
-    <category term="customize-cra" scheme="http://example.com/child/tags/customize-cra/"/>
-    
-    <category term="less" scheme="http://example.com/child/tags/less/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决npm ERR！Unexpected end of JSON input while paring near （解析附近时JSON输入意外结束）&#39;....&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;等npm install错误</title>
-    <link href="http://example.com/child/2020/09/22/JSON-perse-failure/"/>
-    <id>http://example.com/child/2020/09/22/JSON-perse-failure/</id>
-    <published>2020-09-22T09:22:37.000Z</published>
-    <updated>2020-09-25T03:40:03.345Z</updated>
-    
-    
-    <summary type="html">最近更新了一次node，但是更新后npm的命令总是会报Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;npm ERR! Unexpected end of JSON input while parsing near &#39;...:&quot;^2.0.0-rc.0&quot;,&quot;glob&quot;&#39;的错误信息，导致无法进行正常的npm install。经过半天的错误信息搜索，找到了较为友好的解决办法。</summary>
-    
-    
-    
-    <category term="npm" scheme="http://example.com/child/categories/npm/"/>
-    
-    
-    <category term="JSON" scheme="http://example.com/child/tags/JSON/"/>
-    
-    <category term="perse-failure" scheme="http://example.com/child/tags/perse-failure/"/>
     
   </entry>
   

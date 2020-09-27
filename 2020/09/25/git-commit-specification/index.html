@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/assets/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="近期在 review 团队的部分代码，对比个人初期与如今的 git 提交记录，发现初期的提交记录简直是五花八门，言不由衷，让人一打眼看去就觉得这写的什么东西。一个好的 git 提交记录既方便个人快速的了解自我的工作进度、快速的回退版本等，又便于团队之间的协同开发。故分享一下当前最为规范、流行的 git commit 提交规范，希望这次分享可以帮助到你。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端学习之路，前端开发人员如何在团队中规范git commit提交记录">
+<meta property="og:url" content="http://example.com/child/2020/09/25/git-commit-specification/index.html">
+<meta property="og:site_name" content="BlueBerry&#39;s Blog">
+<meta property="og:description" content="近期在 review 团队的部分代码，对比个人初期与如今的 git 提交记录，发现初期的提交记录简直是五花八门，言不由衷，让人一打眼看去就觉得这写的什么东西。一个好的 git 提交记录既方便个人快速的了解自我的工作进度、快速的回退版本等，又便于团队之间的协同开发。故分享一下当前最为规范、流行的 git commit 提交规范，希望这次分享可以帮助到你。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202006/1834510-20200628173137583-948122836.png">
+<meta property="article:published_time" content="2020-09-25T12:29:45.000Z">
+<meta property="article:modified_time" content="2020-09-27T01:26:08.425Z">
+<meta property="article:author" content="请给我一杯冰可乐">
+<meta property="article:tag" content="commit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1834510/202006/1834510-20200628173137583-948122836.png"><title>前端学习之路，前端开发人员如何在团队中规范git commit提交记录 | BlueBerry's Blog</title><link ref="canonical" href="http://example.com/child/2020/09/25/git-commit-specification/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":false},
+  reward: true,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry's Blog" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/music/"><span class="header-nav-submenu-item__icon"><i class="fas fa-headphones-alt"></i></span><span class="header-nav-submenu-item__text">音乐</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry's Blog</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">前端学习之路，前端开发人员如何在团队中规范git commit提交记录</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-27</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">516</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">3分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="前言"   >
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
+      <p>近期在 review 团队的部分代码，对比个人初期与如今的 git 提交记录，发现初期的提交记录简直是五花八门，言不由衷，让人一打眼看去就觉得这写的什么东西。一个好的 git 提交记录既方便个人快速的了解自我的工作进度、快速的回退版本等，又便于团队之间的协同开发。故分享一下当前最为规范、流行的 git commit 提交规范，希望这次分享可以帮助到你。</p>
+
+        <h2 id="commit-message-格式规范"   >
+          <a href="#commit-message-格式规范" class="heading-link"><i class="fas fa-link"></i></a>commit message 格式规范</h2>
+      <p>每次我们的提交代码改动，commit message 包括三个部分：Header、Body 和 Footer。(Header 是必须的，Body 和 Footer 可以省略，引用阮大神的文，下面只讲 header 的规范写法，其余部分可以浏览阮大神文章进行学习)</p>
+
+        <h3 id="Header"   >
+          <a href="#Header" class="heading-link"><i class="fas fa-link"></i></a>Header</h3>
+      <p>Header 包含三个字段：type、scope 和 subject(type 和 subject 是必须的)</p>
+
+        <h4 id="1-type"   >
+          <a href="#1-type" class="heading-link"><i class="fas fa-link"></i></a>1.type</h4>
+      <figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">feat：新特性、新增feature</span><br><span class="line">fix：修改问题、修复bug</span><br><span class="line">refactor：代码重构：没有新增新功能或修复bug</span><br><span class="line">docs：文档修改：仅仅是修改了文档，例如README.MD</span><br><span class="line">style：代码格式修改，注意不是css修改（仅仅是对格式进行修改，例如逗号、缩进、空格等。不改变代码逻辑）</span><br><span class="line">test：测试用例修改：包括单元测试、集成测试</span><br><span class="line">chore：其他修改，比如改变构建流程、或增加删除依赖库、工具等</span><br><span class="line">pref：优化相关：如提升性能、用户体验等</span><br><span class="line">revert：版本回滚</span><br><span class="line">build：构造工具或外部依赖的改动，例如webpack、npm</span><br><span class="line">ci：与CI（持续集成服务）有关的改动</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="2-scope"   >
+          <a href="#2-scope" class="heading-link"><i class="fas fa-link"></i></a>2.scope</h4>
+      <figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scope用于说明commit影响的范围，比如component，route等等，根据项目的情况进行不同的情况改动。</span><br></pre></td></tr></table></div></figure>
+
+
+        <h4 id="3-subject"   >
+          <a href="#3-subject" class="heading-link"><i class="fas fa-link"></i></a>3.subject</h4>
+      <figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subject 是 commit 目的的简要概述，不超过 <span class="number">50</span> 字符。</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="测试"   >
+          <a href="#测试" class="heading-link"><i class="fas fa-link"></i></a>测试</h2>
+      
+        <h3 id="1-提交改动记录"   >
+          <a href="#1-提交改动记录" class="heading-link"><i class="fas fa-link"></i></a>1.提交改动记录</h3>
+      <figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;feat(src/pages/case)：添加案例轮播图下一页导航按钮&quot;</span></span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="2-提交结果"   >
+          <a href="#2-提交结果" class="heading-link"><i class="fas fa-link"></i></a>2.提交结果</h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202006/1834510-20200628173137583-948122836.png" >
+      </p>
+
+        <h2 id="参考文献"   >
+          <a href="#参考文献" class="heading-link"><i class="fas fa-link"></i></a>参考文献</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" >Commit message 和 Change log 编写指南</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com/child">请给我一杯冰可乐</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://example.com/child/2020/09/25/git-commit-specification/">http://example.com/child/2020/09/25/git-commit-specification/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/child/tags/commit/">commit</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/assets/zfb_pay.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="/assets/wx_pay.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020/09/27/rematch-learning-actual/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Rematch的深入学习与实战应用（一），简易数字计数器</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2020/09/25/ant-design-chart/"><span class="paginator-prev__text">基于AntV图表库的Ant deSign Charts图表展示的简单应用</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="disqus_thread"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
+          前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commit-message-%E6%A0%BC%E5%BC%8F%E8%A7%84%E8%8C%83"><span class="toc-number">2.</span> <span class="toc-text">
+          commit message 格式规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Header"><span class="toc-number">2.1.</span> <span class="toc-text">
+          Header</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-type"><span class="toc-number">2.1.1.</span> <span class="toc-text">
+          1.type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-scope"><span class="toc-number">2.1.2.</span> <span class="toc-text">
+          2.scope</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-subject"><span class="toc-number">2.1.3.</span> <span class="toc-text">
+          3.subject</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">
+          测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8F%90%E4%BA%A4%E6%94%B9%E5%8A%A8%E8%AE%B0%E5%BD%95"><span class="toc-number">3.1.</span> <span class="toc-text">
+          1.提交改动记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8F%90%E4%BA%A4%E7%BB%93%E6%9E%9C"><span class="toc-number">3.2.</span> <span class="toc-text">
+          2.提交结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">4.</span> <span class="toc-text">
+          参考文献</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.png" alt="avatar"></div><p class="sidebar-ov-author__text">热爱生活，热爱技术</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/cole31415" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://juejin.im/user/1151943919287197" target="_blank" rel="noopener" data-popover="掘金" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">掘金</span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/ke-le-22-56-54" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知乎</span></a><a class="sidebar-ov-social-item" href="https://www.cnblogs.com/BlueBerryCode/" target="_blank" rel="noopener" data-popover="博客园" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">博客园</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">28</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">53</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>请给我一杯冰可乐</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="100" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script>function loadDisqus () {
+  if (!document.getElementById('disqus_thread')) {
+    return;
+  }
+  if (window.DISQUS) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.url = 'http://example.com/child/2020/09/25/git-commit-specification/';
+        this.page.identifier = '2020/09/25/git-commit-specification/';
+        this.page.title = '前端学习之路，前端开发人员如何在团队中规范git commit提交记录';
+      }
+    });
+  } else {
+    var d = document;
+    var sc = d.createElement('script');
+    var se = d.createElement('script');
+
+    if (true) {
+      sc.src = 'https://blueberrycode.disqus.com/count.js';
+      sc.id = 'dsq-count-scr';
+      sc.async = true;
+      if (false) {
+        sc.setAttribute('data-pjax', '');
+      }
+      (d.head || d.body).appendChild(sc);
+    }
+    se.src = 'https://blueberrycode.disqus.com/embed.js';
+    (d.head || d.body).appendChild(se);
+  }
+}
+
+if (false) {
+  loadDisqus();
+} else {
+  window.addEventListener('DOMContentLoaded', loadDisqus, false);
+}</script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
