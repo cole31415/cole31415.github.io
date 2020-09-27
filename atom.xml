@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-27T01:49:55.288Z</updated>
+  <updated>2020-09-27T02:17:58.068Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Electron:运行npm run build构建环境失败解决方案</title>
+    <link href="http://example.com/child/2020/09/27/electron-build-failed/"/>
+    <id>http://example.com/child/2020/09/27/electron-build-failed/</id>
+    <published>2020-09-27T02:03:55.000Z</published>
+    <updated>2020-09-27T02:17:58.068Z</updated>
+    
+    
+    <summary type="html">从 GitLab 上拉取项目代码后，运行命令 npm run build 构建 electron 打包环境时，由于某些原因（可能被某些墙阻止等），构建环境失败，出现超时错误。</summary>
+    
+    
+    
+    <category term="electron" scheme="http://example.com/child/categories/electron/"/>
+    
+    
+    <category term="环境构建失败" scheme="http://example.com/child/tags/%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA%E5%A4%B1%E8%B4%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git命令行:删除本地分支和删除远程分支</title>
+    <link href="http://example.com/child/2020/09/27/git-delete-branch/"/>
+    <id>http://example.com/child/2020/09/27/git-delete-branch/</id>
+    <published>2020-09-27T01:58:58.000Z</published>
+    <updated>2020-09-27T02:02:38.355Z</updated>
+    
+    
+    <summary type="html">在开发过程中经常需要建立新的分支来修复或者添加新功能，完成额外的工作后需要删除多余的不需要的分支，由于总是忘记删除分支的命令行，所以记录下删除的命令行，以便下次方便查询到。</summary>
+    
+    
+    
+    <category term="Git" scheme="http://example.com/child/categories/Git/"/>
+    
+    
+    <category term="branch" scheme="http://example.com/child/tags/branch/"/>
+    
+    <category term="delete" scheme="http://example.com/child/tags/delete/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决npm install(&quot;proxy&quot; config is set properly. See:&quot;npm help config&quot;)失败问题</title>
+    <link href="http://example.com/child/2020/09/27/npm-proxy-config-isSet/"/>
+    <id>http://example.com/child/2020/09/27/npm-proxy-config-isSet/</id>
+    <published>2020-09-27T01:52:07.000Z</published>
+    <updated>2020-09-27T01:57:39.591Z</updated>
+    
+    
+    <summary type="html">重装电脑系统后，使用 npm install 初始化项目依赖失败了，错误提示:&#39;proxy&#39; config is set properly..........</summary>
+    
+    
+    
+    <category term="npm" scheme="http://example.com/child/categories/npm/"/>
+    
+    
+    <category term="proxy" scheme="http://example.com/child/tags/proxy/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript异常报错处理:&quot;Uncaught TypeError:xxx is not a function&quot;</title>
@@ -390,71 +449,6 @@
     <category term="进程冲突" scheme="http://example.com/child/tags/%E8%BF%9B%E7%A8%8B%E5%86%B2%E7%AA%81/"/>
     
     <category term="repository崩溃" scheme="http://example.com/child/tags/repository%E5%B4%A9%E6%BA%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决无法访问此网址，网址永久性地移动到新网址的问题（ERR_TUNNEL_CONNECTION_FAILED）</title>
-    <link href="http://example.com/child/2020/09/25/connection-failed/"/>
-    <id>http://example.com/child/2020/09/25/connection-failed/</id>
-    <published>2020-09-25T06:40:10.000Z</published>
-    <updated>2020-09-25T06:48:26.206Z</updated>
-    
-    
-    <summary type="html">网址无缘无故出现访问失败的问题，昨天还可以轻松访问，今天就出现如下图的问题，经过搜索报错信息，找到了较有好的解决办法，现在一起分享给需要的朋友们。</summary>
-    
-    
-    
-    <category term="Internet" scheme="http://example.com/child/categories/Internet/"/>
-    
-    
-    <category term="connection" scheme="http://example.com/child/tags/connection/"/>
-    
-    <category term="inaccessible" scheme="http://example.com/child/tags/inaccessible/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决React路由URL中hash(#)部分的显示 、browserHistory打包后浏览器刷新页面出现404的问题</title>
-    <link href="http://example.com/child/2020/09/25/url-hash-404/"/>
-    <id>http://example.com/child/2020/09/25/url-hash-404/</id>
-    <published>2020-09-25T05:05:45.000Z</published>
-    <updated>2020-09-25T05:12:42.451Z</updated>
-    
-    
-    <summary type="html">在React项目中，我们需要采用它的路由库React-Router来进行页面跳转，React会根据路由URL来判断是哪个页面。常见的的URL有两种显示方式，一种是hashHistory的形式，形如：localhost:3000/#/free-lesson的路由，另一种是browserHistory的形式，形如：localhost:3000/person-center的真实URL路由。在实际项目中常常用真实的URL的方式，但是该形式存在一个隐藏的问题，就是项目打包后，浏览器页面刷新会出现404，为了解决这个问题，需要对服务器做简单的改动。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="URL" scheme="http://example.com/child/tags/URL/"/>
-    
-    <category term="nginx" scheme="http://example.com/child/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从入门到入土JS知识(一)：关系操作符和相等操作符</title>
-    <link href="http://example.com/child/2020/09/23/comparison-operation/"/>
-    <id>http://example.com/child/2020/09/23/comparison-operation/</id>
-    <published>2020-09-23T06:37:15.000Z</published>
-    <updated>2020-09-25T05:03:12.609Z</updated>
-    
-    
-    <summary type="html">在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} == {} 或 {} &gt; {} 输出false，为什么{} &gt;= {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。</summary>
-    
-    
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="关系操作符" scheme="http://example.com/child/tags/%E5%85%B3%E7%B3%BB%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
-    
-    <category term="相等操作符" scheme="http://example.com/child/tags/%E7%9B%B8%E7%AD%89%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
     
   </entry>
   

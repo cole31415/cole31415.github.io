@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/assets/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="从 GitLab 上拉取项目代码后，运行命令 npm run build 构建 electron 打包环境时，由于某些原因（可能被某些墙阻止等），构建环境失败，出现超时错误。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron:运行npm run build构建环境失败解决方案">
+<meta property="og:url" content="http://example.com/child/2020/09/27/electron-build-failed/index.html">
+<meta property="og:site_name" content="BlueBerry&#39;s Blog">
+<meta property="og:description" content="从 GitLab 上拉取项目代码后，运行命令 npm run build 构建 electron 打包环境时，由于某些原因（可能被某些墙阻止等），构建环境失败，出现超时错误。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807114714178-1603321120.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807115931482-1210097186.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807120044849-2046609514.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807121724602-1918394289.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807121749914-1241560277.png">
+<meta property="article:published_time" content="2020-09-27T02:03:55.000Z">
+<meta property="article:modified_time" content="2020-09-27T02:17:58.068Z">
+<meta property="article:author" content="请给我一杯冰可乐">
+<meta property="article:tag" content="环境构建失败">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807114714178-1603321120.png"><title>Electron:运行npm run build构建环境失败解决方案 | BlueBerry's Blog</title><link ref="canonical" href="http://example.com/child/2020/09/27/electron-build-failed/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":false},
+  reward: true,
+  fancybox: true,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: {"colWidth":"220px","gapX":"10px"},
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry's Blog" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-menu-item__text">其他</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/music/"><span class="header-nav-submenu-item__icon"><i class="fas fa-headphones-alt"></i></span><span class="header-nav-submenu-item__text">音乐</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry's Blog</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Electron:运行npm run build构建环境失败解决方案</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-27</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">519</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">4分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="前言"   >
+          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
+      <p>从 GitLab 上拉取项目代码后，运行命令 npm run build 构建 electron 打包环境时，由于某些原因（可能被某些墙阻止等），构建环境失败，出现超时错误。错误代码如下:</p>
+<p><strong>错误代码段引用自: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000022013746" >https://segmentfault.com/q/1010000022013746</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">• electron-builder  version=<span class="number">21.2</span><span class="number">.0</span> os=<span class="number">10.0</span><span class="number">.18363</span></span><br><span class="line">  • loaded configuration  file=package.json (<span class="string">&quot;build&quot;</span> field)</span><br><span class="line">  • writing effective config  file=release\builder-effective-config.yaml</span><br><span class="line">  • installing production dependencies  platform=win32 arch=x64 appDir=D:\jobs\electron\pc-chat\dist</span><br><span class="line">  • packaging       platform=win32 arch=x64 electron=<span class="number">4.2</span><span class="number">.12</span> appOutDir=release\win-unpacked</span><br><span class="line">  • downloading     url=https:<span class="comment">//github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.5.0/winCodeSign-2.5.0.7z size=5.6 MB parts=1</span></span><br><span class="line">  • retrying        attempt=<span class="number">1</span></span><br><span class="line">  • retrying        attempt=<span class="number">2</span></span><br><span class="line">  • retrying        attempt=<span class="number">3</span></span><br><span class="line">  ⨯ part download request failed <span class="keyword">with</span> status code <span class="number">403</span></span><br><span class="line">github.com/develar/app-builder/pkg/download.(*Part).doRequest</span><br><span class="line">        /Volumes/data/Documents/app-builder/pkg/download/Part.go:<span class="number">126</span></span><br><span class="line">github.com/develar/app-builder/pkg/download.(*Part).download</span><br><span class="line">        /Volumes/data/Documents/app-builder/pkg/download/Part.go:<span class="number">67</span></span><br><span class="line">github.com/develar/app-builder/pkg/download.(*Downloader).DownloadResolved.func1<span class="number">.1</span></span><br><span class="line">        /Volumes/data/Documents/app-builder/pkg/download/downloader.go:<span class="number">107</span></span><br><span class="line">github.com/develar/app-builder/pkg/util.MapAsyncConcurrency.func2</span><br><span class="line">        /Volumes/data/Documents/app-builder/pkg/util/<span class="keyword">async</span>.go:<span class="number">68</span></span><br><span class="line">runtime.goexit</span><br><span class="line">        /usr/local/Cellar/go/<span class="number">1.12</span><span class="number">.7</span>/libexec/src/runtime/asm_amd64.s:<span class="number">1337</span></span><br><span class="line">  ⨯ D:\jobs\electron\pc-chat\node_modules\_app-builder-bin@<span class="number">3.4</span><span class="number">.3</span>@app-builder-bin\win\x64\app-builder.exe exited <span class="keyword">with</span> code ERR_ELECTRON_BUILDER_CANNOT_EXECUTE  stackTrace=</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="解决方案"   >
+          <a href="#解决方案" class="heading-link"><i class="fas fa-link"></i></a>解决方案</h2>
+      <p>为了更好更快的解决构建环境问题，需要我们手动下载好 electron 环境的压缩资源包等，构建好的打包缓存环境(存放手动下载资源包前，优先清除 cache 的缓存记录)。</p>
+
+        <h2 id="解决方案具体步骤"   >
+          <a href="#解决方案具体步骤" class="heading-link"><i class="fas fa-link"></i></a>解决方案具体步骤</h2>
+      
+        <h3 id="1-清除-electron-和-electron-builder-的-cache-缓存记录-删除文件夹中旧的缓存资源包-。"   >
+          <a href="#1-清除-electron-和-electron-builder-的-cache-缓存记录-删除文件夹中旧的缓存资源包-。" class="heading-link"><i class="fas fa-link"></i></a>1.清除 electron 和 electron-builder 的 cache 缓存记录(删除文件夹中旧的缓存资源包)。</h3>
+      <p><strong>electron 缓存资源地址</strong>: <keyboard>~/AppData/Local/electron/Cache</keyboard></p>
+<p><strong>electron-builder 缓存资源地址</strong>: <keyboard>~/AppData/Local/electron-builder/Cache</keyboard></p>
+
+        <h3 id="2-根据错误提示一步一步的手动下载资源包-资源包版本直接下载当前提示的可用版本，具体类似下图所示下载链接-。"   >
+          <a href="#2-根据错误提示一步一步的手动下载资源包-资源包版本直接下载当前提示的可用版本，具体类似下图所示下载链接-。" class="heading-link"><i class="fas fa-link"></i></a>2.根据错误提示一步一步的手动下载资源包(资源包版本直接下载当前提示的可用版本，具体类似下图所示下载链接)。</h3>
+      <p>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807114714178-1603321120.png" >
+      </p>
+
+        <h4 id="2-1-下载好缓存资源包后，存储到对应的-cache-文件中。"   >
+          <a href="#2-1-下载好缓存资源包后，存储到对应的-cache-文件中。" class="heading-link"><i class="fas fa-link"></i></a>2.1 下载好缓存资源包后，存储到对应的 cache 文件中。</h4>
+      <p><strong>electron 文件存储方式</strong>:<br>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807115931482-1210097186.png" >
+      </p>
+<p><strong>electron-builder 文件存储方式</strong>:<br>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807120044849-2046609514.png" >
+      </p>
+<p><strong>nsis 文件存储方式</strong>:<br>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807121724602-1918394289.png" >
+      </p>
+<p><strong>winCodeSign 存储方式</strong>:<br>
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202008/1834510-20200807121749914-1241560277.png" >
+      </p>
+
+        <h3 id="3-重新运行命令npm-run-build"   >
+          <a href="#3-重新运行命令npm-run-build" class="heading-link"><i class="fas fa-link"></i></a>3.重新运行命令npm run build</h3>
+      </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com/child">请给我一杯冰可乐</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://example.com/child/2020/09/27/electron-build-failed/">http://example.com/child/2020/09/27/electron-build-failed/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/child/tags/%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA%E5%A4%B1%E8%B4%A5/">环境构建失败</a></span></div><div class="post-reward reward"><div class="reward-button">请我喝杯咖啡~</div><div class="reward-qrcode"><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="/assets/zfb_pay.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="/assets/wx_pay.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2020/09/27/git-delete-branch/"><span class="paginator-prev__text">git命令行:删除本地分支和删除远程分支</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="disqus_thread"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">
+          前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">
+          解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.</span> <span class="toc-text">
+          解决方案具体步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B8%85%E9%99%A4-electron-%E5%92%8C-electron-builder-%E7%9A%84-cache-%E7%BC%93%E5%AD%98%E8%AE%B0%E5%BD%95-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E6%97%A7%E7%9A%84%E7%BC%93%E5%AD%98%E8%B5%84%E6%BA%90%E5%8C%85-%E3%80%82"><span class="toc-number">3.1.</span> <span class="toc-text">
+          1.清除 electron 和 electron-builder 的 cache 缓存记录(删除文件夹中旧的缓存资源包)。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%B9%E6%8D%AE%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E7%9A%84%E6%89%8B%E5%8A%A8%E4%B8%8B%E8%BD%BD%E8%B5%84%E6%BA%90%E5%8C%85-%E8%B5%84%E6%BA%90%E5%8C%85%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E5%BD%93%E5%89%8D%E6%8F%90%E7%A4%BA%E7%9A%84%E5%8F%AF%E7%94%A8%E7%89%88%E6%9C%AC%EF%BC%8C%E5%85%B7%E4%BD%93%E7%B1%BB%E4%BC%BC%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5-%E3%80%82"><span class="toc-number">3.2.</span> <span class="toc-text">
+          2.根据错误提示一步一步的手动下载资源包(资源包版本直接下载当前提示的可用版本，具体类似下图所示下载链接)。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD%E5%A5%BD%E7%BC%93%E5%AD%98%E8%B5%84%E6%BA%90%E5%8C%85%E5%90%8E%EF%BC%8C%E5%AD%98%E5%82%A8%E5%88%B0%E5%AF%B9%E5%BA%94%E7%9A%84-cache-%E6%96%87%E4%BB%B6%E4%B8%AD%E3%80%82"><span class="toc-number">3.2.1.</span> <span class="toc-text">
+          2.1 下载好缓存资源包后，存储到对应的 cache 文件中。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%87%8D%E6%96%B0%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4npm-run-build"><span class="toc-number">3.3.</span> <span class="toc-text">
+          3.重新运行命令npm run build</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.png" alt="avatar"></div><p class="sidebar-ov-author__text">热爱生活，热爱技术</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/cole31415" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://juejin.im/user/1151943919287197" target="_blank" rel="noopener" data-popover="掘金" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">掘金</span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/ke-le-22-56-54" target="_blank" rel="noopener" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">知乎</span></a><a class="sidebar-ov-social-item" href="https://www.cnblogs.com/BlueBerryCode/" target="_blank" rel="noopener" data-popover="博客园" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">博客园</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">31</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">13</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">57</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>请给我一杯冰可乐</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="100" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script>function loadDisqus () {
+  if (!document.getElementById('disqus_thread')) {
+    return;
+  }
+  if (window.DISQUS) {
+    DISQUS.reset({
+      reload: true,
+      config: function () {
+        this.page.url = 'http://example.com/child/2020/09/27/electron-build-failed/';
+        this.page.identifier = '2020/09/27/electron-build-failed/';
+        this.page.title = 'Electron:运行npm run build构建环境失败解决方案';
+      }
+    });
+  } else {
+    var d = document;
+    var sc = d.createElement('script');
+    var se = d.createElement('script');
+
+    if (true) {
+      sc.src = 'https://blueberrycode.disqus.com/count.js';
+      sc.id = 'dsq-count-scr';
+      sc.async = true;
+      if (false) {
+        sc.setAttribute('data-pjax', '');
+      }
+      (d.head || d.body).appendChild(sc);
+    }
+    se.src = 'https://blueberrycode.disqus.com/embed.js';
+    (d.head || d.body).appendChild(se);
+  }
+}
+
+if (false) {
+  loadDisqus();
+} else {
+  window.addEventListener('DOMContentLoaded', loadDisqus, false);
+}</script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
