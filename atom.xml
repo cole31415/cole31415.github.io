@@ -36,14 +36,14 @@
   </entry>
   
   <entry>
-    <title>git命令行:删除本地分支和删除远程分支</title>
+    <title>git命令行:删除分支和重命名分支</title>
     <link href="http://example.com/child/2020/09/27/git-delete-branch/"/>
     <id>http://example.com/child/2020/09/27/git-delete-branch/</id>
     <published>2020-09-27T01:58:58.000Z</published>
-    <updated>2020-09-27T02:02:38.355Z</updated>
+    <updated>2020-10-12T10:01:38.166Z</updated>
     
     
-    <summary type="html">在开发过程中经常需要建立新的分支来修复或者添加新功能，完成额外的工作后需要删除多余的不需要的分支，由于总是忘记删除分支的命令行，所以记录下删除的命令行，以便下次方便查询到。</summary>
+    <summary type="html">在开发过程中经常需要建立新的分支来修复或者添加新功能，完成额外的工作后需要删除多余的不需要的分支，由于总是忘记删除分支的命令行，所以记录下删除的命令行，以便下次方便查询到。人总是要追求完美的，有时分支名并不是很满意，奈何你又已经把分支推送到远程仓库了，这时候我们就需要对分支名进行重命名，同时也记录下重命名的命令行，以便下次查阅。</summary>
     
     
     
@@ -53,6 +53,8 @@
     <category term="branch" scheme="http://example.com/child/tags/branch/"/>
     
     <category term="delete" scheme="http://example.com/child/tags/delete/"/>
+    
+    <category term="重命名" scheme="http://example.com/child/tags/%E9%87%8D%E5%91%BD%E5%90%8D/"/>
     
   </entry>
   
