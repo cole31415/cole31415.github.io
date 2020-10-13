@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-09-27T02:17:58.068Z</updated>
+  <updated>2020-10-13T06:53:59.717Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用本地json-server服务，创建简单的本地api数据</title>
+    <link href="http://example.com/child/2020/10/13/json-server-use/"/>
+    <id>http://example.com/child/2020/10/13/json-server-use/</id>
+    <published>2020-10-13T03:17:36.000Z</published>
+    <updated>2020-10-13T06:53:59.717Z</updated>
+    
+    
+    <summary type="html">近期在学习Vue框架，在学习过程中，发现了一个和mockjs类似的第三方库:json-server。它不仅可以模拟出完美的接口数据，还可以修改请求的类型来修改本地的数据，是一个非常不错的库，所以分享记录一下使用心得。</summary>
+    
+    
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    
+    <category term="模拟api" scheme="http://example.com/child/tags/%E6%A8%A1%E6%8B%9Fapi/"/>
+    
+    <category term="json-server" scheme="http://example.com/child/tags/json-server/"/>
+    
+  </entry>
   
   <entry>
     <title>Electron:运行npm run build构建环境失败解决方案</title>
@@ -430,27 +451,6 @@
     
     
     <category term="唤醒" scheme="http://example.com/child/tags/%E5%94%A4%E9%86%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 git stash pop 后git出现&quot;Another git process seems to be running in this repository......&quot;错误信息</title>
-    <link href="http://example.com/child/2020/09/25/git-process-running-in-repository/"/>
-    <id>http://example.com/child/2020/09/25/git-process-running-in-repository/</id>
-    <published>2020-09-25T06:50:19.000Z</published>
-    <updated>2020-09-25T06:57:51.295Z</updated>
-    
-    
-    <summary type="html">当在 dev 开发分支开发新功能时，master 分支出现紧急 bug 需要修复，命令 git stash 就可以暂存当前 dev 分支的代码改动，切换到 master 分支解决紧急 bug。今天遇到一个 git 错误信息，是我在切回 dev 开发分支后把暂存的代码改动复原，但是代码复原后却无法提交，出现了 git 进程冲突的问题。具体错误信息如下:&quot;Another git process seems to be running in this repository, e.g.an editor opened by ‘git commit’. Please make sure all processes are terminated then try again. If it still fails, a git process may have crashed in this repository earlier:remove the file manually to continue.&quot;经过错误信息的解决方案调研，找到了具体有效的解决方案。</summary>
-    
-    
-    
-    <category term="Git" scheme="http://example.com/child/categories/Git/"/>
-    
-    
-    <category term="进程冲突" scheme="http://example.com/child/tags/%E8%BF%9B%E7%A8%8B%E5%86%B2%E7%AA%81/"/>
-    
-    <category term="repository崩溃" scheme="http://example.com/child/tags/repository%E5%B4%A9%E6%BA%83/"/>
     
   </entry>
   
