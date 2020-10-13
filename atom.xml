@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>BlueBerry&#39;s Blog</title>
+  <title>BlueBerry前端笔记</title>
   <icon>http://example.com/child/icon.png</icon>
   <subtitle>Talent in words, wisdom in books</subtitle>
   <link href="http://example.com/child/atom.xml" rel="self"/>
@@ -129,9 +129,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     <category term="Rematch" scheme="http://example.com/child/categories/Rematch/"/>
     
@@ -324,9 +324,9 @@
     
     
     
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
     <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
     
     
     <category term="navigation" scheme="http://example.com/child/tags/navigation/"/>
