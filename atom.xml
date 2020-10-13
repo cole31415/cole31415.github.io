@@ -129,9 +129,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     <category term="Rematch" scheme="http://example.com/child/categories/Rematch/"/>
     
@@ -324,9 +324,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="navigation" scheme="http://example.com/child/tags/navigation/"/>
