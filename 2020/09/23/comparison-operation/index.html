@@ -5,22 +5,22 @@
 <meta property="og:site_name" content="BlueBerry前端笔记">
 <meta property="og:description" content="在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} &#x3D;&#x3D; {} 或 {} &gt; {} 输出false，为什么{} &gt;&#x3D; {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907174642219-806230023.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907182443630-1791452558.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907184013881-134313189.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200915164045495-2078530855.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908101750929-415747854.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908105552155-1178258983.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908111333212-2035334815.png">
-<meta property="og:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908113042426-432678021.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/error-in143.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-01.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-02.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-03.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-04.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-05.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-06.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-07.png">
+<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/compare-08.png">
 <meta property="article:published_time" content="2020-09-23T06:37:15.000Z">
-<meta property="article:modified_time" content="2020-09-25T05:03:12.609Z">
+<meta property="article:modified_time" content="2020-10-28T08:08:35.157Z">
 <meta property="article:author" content="请给我一杯冰可乐">
 <meta property="article:tag" content="关系操作符">
 <meta property="article:tag" content="相等操作符">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png"><title>从入门到入土JS知识(一)：关系操作符和相等操作符 | BlueBerry前端笔记</title><link ref="canonical" href="http://example.com/child/2020/09/23/comparison-operation/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/error-in143.png"><title>从入门到入土JS知识(一)：关系操作符和相等操作符 | BlueBerry前端笔记</title><link ref="canonical" href="http://example.com/child/2020/09/23/comparison-operation/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -44,13 +44,13 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry前端笔记" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-hat-wizard"></i></span><span class="header-nav-menu-item__text">更多</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about/"><span class="header-nav-submenu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-submenu-item__text">关于</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry前端笔记</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">从入门到入土JS知识(一)：关系操作符和相等操作符</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">17分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-hat-wizard"></i></span><span class="header-nav-menu-item__text">更多</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about/"><span class="header-nav-submenu-item__icon"><i class="fas fa-fingerprint"></i></span><span class="header-nav-submenu-item__text">关于</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/resources/"><span class="header-nav-submenu-item__icon"><i class="fas fa-file-alt"></i></span><span class="header-nav-submenu-item__text">资源</span></a></div></div></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry前端笔记</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">从入门到入土JS知识(一)：关系操作符和相等操作符</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-10-28</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">2.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">17分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
         <h2 id="前言"   >
           <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
       <p>在浏览技术网时，无意中发现一个同行问的问题，问题如下：‘ {} == {} 或 {} &gt; {} 输出false，为什么{} &gt;= {}输出true ？ ’。很有趣的问题，对啊为什么会这样呢，百思不得其解。为了理清这问题中的解题关键，我翻阅了JS红宝书以及温习了MDN网站中对关系运算符和相等运算符的知识点，终于是解开了问题的迷雾，看到了庐山真相。</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907162951439-1908512751.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/error-in143.png" >
       </p>
 
         <h2 id="JS操作符知识回顾"   >
@@ -91,7 +91,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
           <a href="#单一性测试结果" class="heading-link"><i class="fas fa-link"></i></a>单一性测试结果</h5>
       <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907174642219-806230023.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-01.png" >
       </p>
 
         <h5 id="单一性测试分析"   >
@@ -99,7 +99,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p>遵循关系操作符的比较规则，当操作数是对象时，调用对象的valueOf()方法获取原始值进行比较，或者调用toString()方法获取对象字符串再进行比较。我们分别打印对象的valueOf()、toString()获取到的值，如下图所示：</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907182443630-1791452558.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-02.png" >
       </p>
 <p>因为{}的valueOf()方法返回值是对象本身(默认情况下，如果对象没有原始值，则valueOf将返回对象本身)，因此我们可以比较{}对象的toString()方法返回的字符串大小，而单一性对象关系比较时，返回字符串一致，所以就产生了以上的测试结果。</p>
 
@@ -113,7 +113,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
           <a href="#多元性测试结果" class="heading-link"><i class="fas fa-link"></i></a>多元性测试结果</h5>
       <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200907184013881-134313189.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-03.png" >
       </p>
 
         <h5 id="多元性测试分析"   >
@@ -121,12 +121,12 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p>仍然遵循关系操作符的比较规则，分别比较普通对象{}、数组对象[]、函数对象function(){}的valueOf()方法或者toString()方法，我们分别打印三个对象的方法值如下：</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200915164045495-2078530855.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-04.png" >
       </p>
 <p>由打印的方法值可以了解到，三类对象的valueOf()方法都是返回自身对象原始值，因此我们可以根据toString()方法获取到的字符串进行字符串关系比较，而字符串比较是使用基于标准字典的Unicode值来进行比较的，我们分别对普通对象、数组对象、函数对象的toString()方法返回的字符串进行Unicode转码，Unicode分别如下图所示：</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908101750929-415747854.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-05.png" >
       </p>
 <p>根据Unicode的大小可知，函数对象&gt;普通对象&gt;数组对象，所以产生了以上的测试结果。</p>
 
@@ -162,7 +162,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
           <a href="#相等测试结果" class="heading-link"><i class="fas fa-link"></i></a>相等测试结果</h5>
       <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908105552155-1178258983.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-06.png" >
       </p>
 
         <h5 id="相等测试分析"   >
@@ -170,7 +170,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p>数组和函数也是对象，遵循这相等比较的规则，两个操作数都是对象时，比较两个对象<code>是不是</code>同一个对象？对啊，难道{}和{}不是同一个对象吗？所以这里的是不是究竟是个什么含义呢？如果深知javascript内存管理的，就会知晓当创建一个变量对象时，javascript内存会为这个变量对象创建一个堆内存地址来储存该变量对象，同时也会创建一个指向堆内存地址的栈内存指针(类比了下C中的指针)。javascript的变量对象的内存管理机制如下图所示：</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908111333212-2035334815.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-07.png" >
       </p>
 <p>根据javascript的内存管理机制，如果两操作数为对象类型，JavaScript会比较其内部引用地址，仅当他们在内存中引用不同对象时不相等；这样就会产生以上的测试结果。</p>
 
@@ -188,7 +188,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
           <a href="#全等测试结果" class="heading-link"><i class="fas fa-link"></i></a>全等测试结果</h5>
       <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="https://img2020.cnblogs.com/blog/1834510/202009/1834510-20200908113042426-432678021.png" >
+          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/compare-08.png" >
       </p>
 
         <h5 id="全等测试分析"   >
