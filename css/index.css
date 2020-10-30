@@ -2973,3 +2973,20 @@ body::-webkit-scrollbar-button {
 body::-webkit-scrollbar-corner {
   display: none;
 }
+.post-title {
+  display: inline-block;
+  position: relative;
+}
+.post-title .post-title__link {
+  display: block;
+  padding: 7px 15px;
+  font-size: 23px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
