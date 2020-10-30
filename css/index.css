@@ -2954,3 +2954,22 @@ a.fancybox {
     width: 100%;
   }
 }
+body::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #d4deee;
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #86aff9;
+}
+body::-webkit-scrollbar-button {
+  display: none;
+  background-color: #888;
+}
+body::-webkit-scrollbar-corner {
+  display: none;
+}
