@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-10-28T08:04:27.505Z</updated>
+  <updated>2020-11-20T08:43:53.448Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重学javascript(一):数组</title>
+    <link href="http://example.com/child/2020/11/17/relearn-arrayjs-one/"/>
+    <id>http://example.com/child/2020/11/17/relearn-arrayjs-one/</id>
+    <published>2020-11-17T03:22:17.000Z</published>
+    <updated>2020-11-20T08:43:53.448Z</updated>
+    
+    
+    <summary type="html">近期在梳理后台系统开发中的知识点，发现大部分工作来自于**Table**的增删改查操作，而列表的数据又大多数是数组，故数组的操作比重尤为关键。为了更好更快的解决日常开发中数组的操作，重学了 javascript 数组的知识，记录下重学的学习笔记。</summary>
+    
+    
+    
+    <category term="重学javascript系列" scheme="http://example.com/child/categories/%E9%87%8D%E5%AD%A6javascript%E7%B3%BB%E5%88%97/"/>
+    
+    
+    <category term="Array" scheme="http://example.com/child/tags/Array/"/>
+    
+  </entry>
   
   <entry>
     <title>使用本地json-server服务，创建简单的本地api数据</title>
@@ -430,27 +449,6 @@
     <category term="userAgent" scheme="http://example.com/child/tags/userAgent/"/>
     
     <category term="Client" scheme="http://example.com/child/tags/Client/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决React中打开App或者下载App问题</title>
-    <link href="http://example.com/child/2020/09/25/react-wake-app/"/>
-    <id>http://example.com/child/2020/09/25/react-wake-app/</id>
-    <published>2020-09-25T07:01:20.000Z</published>
-    <updated>2020-09-25T07:30:22.362Z</updated>
-    
-    
-    <summary type="html">最近在写 H5 页面，项目中有个唤醒 App 的功能，由于没有接触过这类功能，就去学习了一波大佬们的经验。在此分享出来和大家一起学习学习。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
-    
-    
-    <category term="唤醒" scheme="http://example.com/child/tags/%E5%94%A4%E9%86%92/"/>
     
   </entry>
   

@@ -2973,6 +2973,25 @@ body::-webkit-scrollbar-button {
 body::-webkit-scrollbar-corner {
   display: none;
 }
+.sidebar-toc::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+.sidebar-toc::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #d4deee;
+}
+.sidebar-toc::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #86aff9;
+}
+.sidebar-toc::-webkit-scrollbar-button {
+  display: none;
+  background-color: #888;
+}
+.sidebar-toc::-webkit-scrollbar-corner {
+  display: none;
+}
 .post-title {
   display: inline-block;
   position: relative;
