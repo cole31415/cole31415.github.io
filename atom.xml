@@ -40,7 +40,7 @@
     <link href="http://example.com/child/2020/10/13/json-server-use/"/>
     <id>http://example.com/child/2020/10/13/json-server-use/</id>
     <published>2020-10-13T03:17:36.000Z</published>
-    <updated>2020-10-28T08:04:27.505Z</updated>
+    <updated>2020-11-20T08:49:02.517Z</updated>
     
     
     <summary type="html">近期在学习Vue框架，在学习过程中，发现了一个和mockjs类似的第三方库:json-server。它不仅可以模拟出完美的接口数据，还可以修改请求的类型来修改本地的数据，是一个非常不错的库，所以分享记录一下使用心得。</summary>
@@ -61,7 +61,7 @@
     <link href="http://example.com/child/2020/09/27/electron-build-failed/"/>
     <id>http://example.com/child/2020/09/27/electron-build-failed/</id>
     <published>2020-09-27T02:03:55.000Z</published>
-    <updated>2020-10-28T08:25:08.327Z</updated>
+    <updated>2020-11-20T08:48:34.139Z</updated>
     
     
     <summary type="html">从 GitLab 上拉取项目代码后，运行命令 npm run build 构建 electron 打包环境时，由于某些原因（可能被某些墙阻止等），构建环境失败，出现超时错误。</summary>
@@ -103,7 +103,7 @@
     <link href="http://example.com/child/2020/09/27/npm-proxy-config-isSet/"/>
     <id>http://example.com/child/2020/09/27/npm-proxy-config-isSet/</id>
     <published>2020-09-27T01:52:07.000Z</published>
-    <updated>2020-10-28T08:18:53.077Z</updated>
+    <updated>2020-11-20T08:49:11.532Z</updated>
     
     
     <summary type="html">重装电脑系统后，使用 npm install 初始化项目依赖失败了，错误提示:&#39;proxy&#39; config is set properly..........</summary>
@@ -122,7 +122,7 @@
     <link href="http://example.com/child/2020/09/27/uncaught-typeError/"/>
     <id>http://example.com/child/2020/09/27/uncaught-typeError/</id>
     <published>2020-09-27T01:43:57.000Z</published>
-    <updated>2020-10-28T08:21:08.399Z</updated>
+    <updated>2020-11-20T08:49:33.265Z</updated>
     
     
     <summary type="html">页面报错 bug 是常有的事，我们可以根据错误 bug 提示关键性的去修复问题。依稀的记得之前有个小伙伴询问了一个 js 异常的错误 bug:&quot;Uncaught TypeError:xxx is not a function&quot;。这个错误问题定位处理起来很快，但是我却不知其所以然。为了弄清楚报错的深层面原因，去调研了关于错误的解决方案。学习吸取别人的经验，对这个常见的报错的原理有了新的认识，这次就分享总结 Uncaught TypeError 的错误原由以及解决方案。</summary>
@@ -141,7 +141,7 @@
     <link href="http://example.com/child/2020/09/27/rematch-learning-actual/"/>
     <id>http://example.com/child/2020/09/27/rematch-learning-actual/</id>
     <published>2020-09-27T01:27:35.000Z</published>
-    <updated>2020-10-28T08:19:56.986Z</updated>
+    <updated>2020-11-20T08:49:25.555Z</updated>
     
     
     <summary type="html">近期在优化团队代码，发现 Redux 重复使用的代码过多。 经过调研发现了 Rematch 库：Redux 是一个出色的状态管理工具，并且有着健全的中间件生态以及出色的开发工具；Rematch 是没有 boilerplate 的 Redux 最佳实践。移除了声明 action 类型、action 创建函数、thunks、store 配置、mapDispatchToProps、sagas 等东西，大大简化了代码。故今天就来分享 Rematch 的用法。</summary>
@@ -166,7 +166,7 @@
     <link href="http://example.com/child/2020/09/25/git-commit-specification/"/>
     <id>http://example.com/child/2020/09/25/git-commit-specification/</id>
     <published>2020-09-25T12:29:45.000Z</published>
-    <updated>2020-10-28T08:13:55.686Z</updated>
+    <updated>2020-11-20T08:48:38.821Z</updated>
     
     
     <summary type="html">近期在 review 团队的部分代码，对比个人初期与如今的 git 提交记录，发现初期的提交记录简直是五花八门，言不由衷，让人一打眼看去就觉得这写的什么东西。一个好的 git 提交记录既方便个人快速的了解自我的工作进度、快速的回退版本等，又便于团队之间的协同开发。故分享一下当前最为规范、流行的 git commit 提交规范，希望这次分享可以帮助到你。</summary>
@@ -185,7 +185,7 @@
     <link href="http://example.com/child/2020/09/25/ant-design-chart/"/>
     <id>http://example.com/child/2020/09/25/ant-design-chart/</id>
     <published>2020-09-25T12:18:13.000Z</published>
-    <updated>2020-10-28T08:05:45.139Z</updated>
+    <updated>2020-11-20T08:47:46.973Z</updated>
     
     
     <summary type="html">数据是我们每天都在接触的东西，我们需要清晰的了解去了解数据的变化趋势，就需要让数据可视化。最近在接触学习 Ant design 的社区精选组件，上一篇文章主要是讲了高德地图的应用，这次我们就来分享下 G2Plot 在 React 中实现可视化数据图表的简单应用。</summary>
@@ -206,7 +206,7 @@
     <link href="http://example.com/child/2020/09/25/react-amap/"/>
     <id>http://example.com/child/2020/09/25/react-amap/</id>
     <published>2020-09-25T12:07:17.000Z</published>
-    <updated>2020-10-28T08:19:28.345Z</updated>
+    <updated>2020-11-20T08:49:16.117Z</updated>
     
     
     <summary type="html">平常生活中，地图导航是必不可少的，最近在学习 Ant design，了解了下社区的精选组件，看到了与地图相关的精品组件库，高德地图组件库。所以记录下这次高德地图的使用心得，既可以提升自己的业务多样性，也可以分享给需要的小伙伴。</summary>
@@ -254,7 +254,7 @@
     <link href="http://example.com/child/2020/09/25/git-reference-broken/"/>
     <id>http://example.com/child/2020/09/25/git-reference-broken/</id>
     <published>2020-09-25T09:43:13.000Z</published>
-    <updated>2020-10-28T08:14:39.554Z</updated>
+    <updated>2020-11-20T08:48:47.722Z</updated>
     
     
     <summary type="html">近期在合并拉取代码，在合并分支代码时不知做了什么操作，使用 git pull 命令更新本地代码失败，显示本地分支参考关联损坏失效。</summary>
@@ -275,7 +275,7 @@
     <link href="http://example.com/child/2020/09/25/sticky-nav-ceiling/"/>
     <id>http://example.com/child/2020/09/25/sticky-nav-ceiling/</id>
     <published>2020-09-25T09:34:35.000Z</published>
-    <updated>2020-10-28T08:20:11.178Z</updated>
+    <updated>2020-11-20T08:49:28.159Z</updated>
     
     
     <summary type="html">近期开发中遇到导航栏下滑吸顶的需求，经过方案调研，发现 position：sticky 可以简单快捷的实现功能。sticky（粘贴定位）可以被认为是相对定位和固定定位的混合，元素在跨越特定阀值前为相对定位，之后为固定定位。根据 sticky 的特性，只需要添加简单的几行 CSS 样式代码即可实现导航栏吸顶效果，大大的节省了开发效率。</summary>
@@ -296,7 +296,7 @@
     <link href="http://example.com/child/2020/09/25/js-keep-effective-num/"/>
     <id>http://example.com/child/2020/09/25/js-keep-effective-num/</id>
     <published>2020-09-25T09:13:01.000Z</published>
-    <updated>2020-10-28T08:16:47.383Z</updated>
+    <updated>2020-11-20T08:48:55.489Z</updated>
     
     
     <summary type="html">在之前的文章中有讲过保留两位小数的实现，最近在开发活动页面时，依旧是展示参赛作品的点赞数。当点赞数过万时，显示三位有效数字来展示点赞数，例如：1.56 万、23.1 万等。经过探索，找到了 toPrecision() 方法，在 MDN 中是这样概述该方法的：toPrecision() 方法以指定的精度返回该数值对象的字符串表示。我们可以改变该方法的 percision 参数来定义需要保留多少位有效数，话不多说，具体脚本代码如下。</summary>
@@ -359,7 +359,7 @@
     <link href="http://example.com/child/2020/09/25/h5-silent-authorization/"/>
     <id>http://example.com/child/2020/09/25/h5-silent-authorization/</id>
     <published>2020-09-25T08:20:31.000Z</published>
-    <updated>2020-10-28T08:16:19.686Z</updated>
+    <updated>2020-11-20T08:48:53.029Z</updated>
     
     
     <summary type="html">近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。</summary>
@@ -384,7 +384,7 @@
     <link href="http://example.com/child/2020/09/25/js-two-decimal-places/"/>
     <id>http://example.com/child/2020/09/25/js-two-decimal-places/</id>
     <published>2020-09-25T08:10:01.000Z</published>
-    <updated>2020-10-28T08:17:39.103Z</updated>
+    <updated>2020-11-20T08:48:57.762Z</updated>
     
     
     <summary type="html">在开发中展示点赞数时，当数量级超过 10000 后，需要使用更加简洁的小数式去显现数量（例如 1.22 万）。下面就给大家分享数量小数式后保留两位小数的实现方式。</summary>
@@ -403,7 +403,7 @@
     <link href="http://example.com/child/2020/09/25/h5-bug-solution/"/>
     <id>http://example.com/child/2020/09/25/h5-bug-solution/</id>
     <published>2020-09-25T07:36:08.000Z</published>
-    <updated>2020-10-28T08:15:39.214Z</updated>
+    <updated>2020-11-20T08:48:50.262Z</updated>
     
     
     <summary type="html">最近在开发 H5，就在开发过程中发现 H5 存在着一些坑，所以就总结一下在开发过程中遇到的坑以及解决办法，本文会持续的更新，同时也欢迎大家一起评论分享 H5 开发中遇到的坑、解决办法等。</summary>

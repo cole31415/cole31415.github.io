@@ -5,12 +5,12 @@
 <meta property="og:site_name" content="BlueBerry前端笔记">
 <meta property="og:description" content="最近在开发 H5，就在开发过程中发现 H5 存在着一些坑，所以就总结一下在开发过程中遇到的坑以及解决办法，本文会持续的更新，同时也欢迎大家一起评论分享 H5 开发中遇到的坑、解决办法等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-01.png">
-<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-02.png">
-<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-03.png">
-<meta property="og:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-04.png">
+<meta property="og:image" content="http://www.blueberrycode.online/h5-bug-01.png">
+<meta property="og:image" content="http://www.blueberrycode.online/h5-bug-02.png">
+<meta property="og:image" content="http://www.blueberrycode.online/h5-bug-03.png">
+<meta property="og:image" content="http://www.blueberrycode.online/h5-bug-04.png">
 <meta property="article:published_time" content="2020-09-25T07:36:08.000Z">
-<meta property="article:modified_time" content="2020-10-28T08:15:39.214Z">
+<meta property="article:modified_time" content="2020-11-20T08:48:50.262Z">
 <meta property="article:author" content="请给我一杯冰可乐">
 <meta property="article:tag" content="微信分享">
 <meta property="article:tag" content="input-keyboard">
@@ -18,7 +18,7 @@
 <meta property="article:tag" content="video-level">
 <meta property="article:tag" content="首屏加载">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-01.png"><title>H5页面常见开发问题总结 | BlueBerry前端笔记</title><link ref="canonical" href="http://example.com/child/2020/09/25/h5-bug-solution/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.3.0"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="http://www.blueberrycode.online/h5-bug-01.png"><title>H5页面常见开发问题总结 | BlueBerry前端笔记</title><link ref="canonical" href="http://example.com/child/2020/09/25/h5-bug-solution/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.3.0"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -43,7 +43,7 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="BlueBerry前端笔记" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry前端笔记</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">H5页面常见开发问题总结</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-10-28</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">11分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">BlueBerry前端笔记</div><div class="header-banner-info__subtitle">Talent in words, wisdom in books</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><div class="sticky-top" data-popover="置顶文章" data-popover-pos="up"><span class="sticky-top__icon"><i class="fas fa-thumbtack"></i></span></div><h1 class="post-title">H5页面常见开发问题总结</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-09-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-11-20</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数统计</span><span class="post-meta-item__value">1.7k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">阅读时长</span><span class="post-meta-item__value">11分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
         <h2 id="前言"   >
           <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a>前言</h2>
       <p>最近在开发 H5，就在开发过程中发现 H5 存在着一些坑，所以就总结一下在开发过程中遇到的坑以及解决办法，本文会持续的更新，同时也欢迎大家一起评论分享 H5 开发中遇到的坑、解决办法等。</p>
@@ -56,7 +56,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p><strong>问题现象</strong>: 微信自定义分享时，需要更换新的缩略图，但是在更换上新缩略图后，分享微信链接给朋友时，缩略图显示失效。具体问题如下图所示:</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-01.png" >
+          src="/images/loading.svg" data-src="http://www.blueberrycode.online/h5-bug-01.png" >
       </p>
 <p><strong>解决方案</strong>: 经过 debugger 对比新旧两张缩略图的信息发现，当缩略图的大小太小时，无法获取到正常的缩略图地址 url。调研了解到微信自定义分享时，缩略图大小需要 10K 以上，调整图片大小信息即可解决问题。</p>
 
@@ -82,7 +82,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p><strong>问题现象</strong>: 在 ios 中，部分 iPhone 机型（大屏幕、高分辨率等）微信中长按二维码无法识别，具体 bug 错误现象如下图所示:</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-02.png" >
+          src="/images/loading.svg" data-src="http://www.blueberrycode.online/h5-bug-02.png" >
       </p>
 <p><strong>解决方案</strong>: 添加 padding、给二维码添加透明的二维码识别区，增加二维码的识别面积；简化二维码周围的信息元素，增加二维码计算识别度。</p>
 <p><strong>React 开发解决方案</strong>(实现代码):</p>
@@ -103,11 +103,11 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.1.1"><lin
       <p><strong>问题现象</strong>: 扫码进入 H5 页面（可滚动页面），页面首屏存在图片资源信息，当页面滚动后，页面信息无法加载。具体问题现象如下图所示:</p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-03.png" >
+          src="/images/loading.svg" data-src="http://www.blueberrycode.online/h5-bug-03.png" >
       </p>
 <p>
         <img   class="lazyload lazyload-gif"
-          src="/images/loading.svg" data-src="http://qiwhg92b7.hn-bkt.clouddn.com/h5-bug-04.png" >
+          src="/images/loading.svg" data-src="http://www.blueberrycode.online/h5-bug-04.png" >
       </p>
 <p><strong>解决方案</strong>: 汲取网上的开发经验发现，在 H5 滚动容器的样式里加了一个 overflow：hidden，去掉该样式属性就解决问题。</p>
 
