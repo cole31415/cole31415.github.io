@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-11-20T08:43:53.448Z</updated>
+  <updated>2020-11-24T10:09:15.977Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何解决VSCode编辑器中React类组件使用修饰器警告的问题</title>
+    <link href="http://example.com/child/2020/11/24/react-decorator-waring/"/>
+    <id>http://example.com/child/2020/11/24/react-decorator-waring/</id>
+    <published>2020-11-24T09:23:08.000Z</published>
+    <updated>2020-11-24T10:09:15.977Z</updated>
+    
+    
+    <summary type="html">基于 React 构建了一个后台管理系统，且在系统类组件中引入 ES6 Decorator 修饰器的实验特性，简化项目代码。虽然引入 Decorator 修饰器是大大简化了项目代码量，但是 VSCode 却提示对修饰器的实验支持功能在将来的版本中可能更改的红色警告(具体的警告如下图所示)，本斯是个追求完美的人，故花费了一些小时间搜索解决了问题，现分享下问题的解决方案。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    
+    <category term="experimentalDecorators" scheme="http://example.com/child/tags/experimentalDecorators/"/>
+    
+  </entry>
   
   <entry>
     <title>重学javascript(一):数组</title>
@@ -424,31 +443,6 @@
     <category term="video-level" scheme="http://example.com/child/tags/video-level/"/>
     
     <category term="首屏加载" scheme="http://example.com/child/tags/%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript判断客户端是Android还是IOS，判断浏览器类型</title>
-    <link href="http://example.com/child/2020/09/25/judgment-browser-types/"/>
-    <id>http://example.com/child/2020/09/25/judgment-browser-types/</id>
-    <published>2020-09-25T07:21:09.000Z</published>
-    <updated>2020-09-25T07:29:11.149Z</updated>
-    
-    
-    <summary type="html">当在判断当前客户端是什么类型时，我们就可以根据客户端自带的 UA 标识，搭配正则判断机制来判断当前的客户端是什么设备。今天就分享下如何通过 Javascript 来获取客户端的 UA 标识，并判断客户端类型。</summary>
-    
-    
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
-    
-    
-    <category term="browser" scheme="http://example.com/child/tags/browser/"/>
-    
-    <category term="userAgent" scheme="http://example.com/child/tags/userAgent/"/>
-    
-    <category term="Client" scheme="http://example.com/child/tags/Client/"/>
     
   </entry>
   
