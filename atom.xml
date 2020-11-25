@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-11-24T10:09:15.977Z</updated>
+  <updated>2020-11-25T09:51:54.497Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/child/2020/11/24/react-decorator-waring/"/>
     <id>http://example.com/child/2020/11/24/react-decorator-waring/</id>
     <published>2020-11-24T09:23:08.000Z</published>
-    <updated>2020-11-24T10:09:15.977Z</updated>
+    <updated>2020-11-25T09:51:54.497Z</updated>
     
     
     <summary type="html">基于 React 构建了一个后台管理系统，且在系统类组件中引入 ES6 Decorator 修饰器的实验特性，简化项目代码。虽然引入 Decorator 修饰器是大大简化了项目代码量，但是 VSCode 却提示对修饰器的实验支持功能在将来的版本中可能更改的红色警告(具体的警告如下图所示)，本斯是个追求完美的人，故花费了一些小时间搜索解决了问题，现分享下问题的解决方案。</summary>
