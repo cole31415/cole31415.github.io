@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2020-11-25T09:51:54.497Z</updated>
+  <updated>2020-11-27T04:02:21.257Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日一道面试题</title>
+    <link href="http://example.com/child/2020/11/27/one-daily-interview-questions/"/>
+    <id>http://example.com/child/2020/11/27/one-daily-interview-questions/</id>
+    <published>2020-11-27T02:11:51.000Z</published>
+    <updated>2020-11-27T04:02:21.257Z</updated>
+    
+    
+    <summary type="html">为了巩固自己的知识和提升技术栈的广度以及深度，每天都会学习一道面试题(本文会持续更新)。</summary>
+    
+    
+    
+    <category term="前端面试" scheme="http://example.com/child/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="interview" scheme="http://example.com/child/tags/interview/"/>
+    
+  </entry>
   
   <entry>
     <title>如何解决VSCode编辑器中React类组件使用修饰器警告的问题</title>
@@ -414,35 +433,6 @@
     
     
     <category term="decimal" scheme="http://example.com/child/tags/decimal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>H5页面常见开发问题总结</title>
-    <link href="http://example.com/child/2020/09/25/h5-bug-solution/"/>
-    <id>http://example.com/child/2020/09/25/h5-bug-solution/</id>
-    <published>2020-09-25T07:36:08.000Z</published>
-    <updated>2020-11-24T08:50:10.606Z</updated>
-    
-    
-    <summary type="html">最近在开发 H5，就在开发过程中发现 H5 存在着一些坑，所以就总结一下在开发过程中遇到的坑以及解决办法，本文会持续的更新，同时也欢迎大家一起评论分享 H5 开发中遇到的坑、解决办法等。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
-    
-    
-    <category term="微信分享" scheme="http://example.com/child/tags/%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB/"/>
-    
-    <category term="input-keyboard" scheme="http://example.com/child/tags/input-keyboard/"/>
-    
-    <category term="QRCode" scheme="http://example.com/child/tags/QRCode/"/>
-    
-    <category term="video-level" scheme="http://example.com/child/tags/video-level/"/>
-    
-    <category term="首屏加载" scheme="http://example.com/child/tags/%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   
