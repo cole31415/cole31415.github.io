@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2021-01-01T10:51:07.574Z</updated>
+  <updated>2021-01-05T06:13:39.796Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>重学Javascript(二):字符串</title>
+    <link href="http://example.com/child/2020/12/31/relearn-stringjs-two/"/>
+    <id>http://example.com/child/2020/12/31/relearn-stringjs-two/</id>
+    <published>2020-12-31T07:58:21.000Z</published>
+    <updated>2021-01-05T06:13:39.796Z</updated>
+    
+    
+    <summary type="html">上次梳理了有关 Javascript 数组的知识点，这次我们继续来梳理字符串的知识点，快速熟悉并掌握字符串的相关属性与方法。</summary>
+    
+    
+    
+    <category term="重学Javascript系列" scheme="http://example.com/child/categories/%E9%87%8D%E5%AD%A6Javascript%E7%B3%BB%E5%88%97/"/>
+    
+    
+    <category term="String" scheme="http://example.com/child/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
     <title>每日一道面试题</title>
     <link href="http://example.com/child/2020/11/27/one-daily-interview-questions/"/>
     <id>http://example.com/child/2020/11/27/one-daily-interview-questions/</id>
     <published>2020-11-27T02:11:51.000Z</published>
-    <updated>2021-01-01T10:51:07.574Z</updated>
+    <updated>2021-01-05T02:48:27.949Z</updated>
     
     
     <summary type="html">为了巩固自己的知识和提升技术栈的广度以及深度，每天都会学习一道面试题(本文会持续更新)。</summary>
@@ -59,10 +78,10 @@
     <link href="http://example.com/child/2020/11/17/relearn-arrayjs-one/"/>
     <id>http://example.com/child/2020/11/17/relearn-arrayjs-one/</id>
     <published>2020-11-17T03:22:17.000Z</published>
-    <updated>2020-12-31T08:00:51.165Z</updated>
+    <updated>2021-01-05T02:29:10.255Z</updated>
     
     
-    <summary type="html">近期在梳理后台系统开发中的知识点，发现大部分工作来自于**Table**的增删改查操作，而列表的数据又大多数是数组，故数组的操作比重尤为关键。为了更好更快的解决日常开发中数组的操作，重学了 javascript 数组的知识，记录下重学的学习笔记。</summary>
+    <summary type="html">近期在梳理后台系统开发中的知识点，发现大部分工作来自于**Table**的增删改查操作，而列表的数据又大多数是数组，故数组的操作比重尤为关键。为了更好更快的解决日常开发中数组的操作，重学了 Javascript 数组的知识，记录下重学的学习笔记。</summary>
     
     
     
@@ -414,25 +433,6 @@
     <category term="code" scheme="http://example.com/child/tags/code/"/>
     
     <category term="endlessLoop" scheme="http://example.com/child/tags/endlessLoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript 保留两位小数</title>
-    <link href="http://example.com/child/2020/09/25/js-two-decimal-places/"/>
-    <id>http://example.com/child/2020/09/25/js-two-decimal-places/</id>
-    <published>2020-09-25T08:10:01.000Z</published>
-    <updated>2020-11-24T08:50:19.324Z</updated>
-    
-    
-    <summary type="html">在开发中展示点赞数时，当数量级超过 10000 后，需要使用更加简洁的小数式去显现数量（例如 1.22 万）。下面就给大家分享数量小数式后保留两位小数的实现方式。</summary>
-    
-    
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="decimal" scheme="http://example.com/child/tags/decimal/"/>
     
   </entry>
   
