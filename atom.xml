@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2021-01-05T06:13:39.796Z</updated>
+  <updated>2021-01-06T02:54:39.233Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/child/2020/12/31/relearn-stringjs-two/"/>
     <id>http://example.com/child/2020/12/31/relearn-stringjs-two/</id>
     <published>2020-12-31T07:58:21.000Z</published>
-    <updated>2021-01-05T06:13:39.796Z</updated>
+    <updated>2021-01-06T02:54:39.233Z</updated>
     
     
     <summary type="html">上次梳理了有关 Javascript 数组的知识点，这次我们继续来梳理字符串的知识点，快速熟悉并掌握字符串的相关属性与方法。</summary>
