@@ -40,7 +40,7 @@
     <link href="http://example.com/child/2020/11/27/one-daily-interview-questions/"/>
     <id>http://example.com/child/2020/11/27/one-daily-interview-questions/</id>
     <published>2020-11-27T02:11:51.000Z</published>
-    <updated>2021-01-25T10:08:46.480Z</updated>
+    <updated>2021-01-26T02:58:23.076Z</updated>
     
     
     <summary type="html">为了巩固自己的知识和提升技术栈的广度以及深度，每天都会学习一道面试题(本文会持续更新)。</summary>
@@ -205,9 +205,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     <category term="Rematch" scheme="http://example.com/child/categories/Rematch/"/>
     
@@ -400,9 +400,9 @@
     
     
     
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
     <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
     
     
     <category term="navigation" scheme="http://example.com/child/tags/navigation/"/>
