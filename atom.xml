@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2021-01-06T02:54:39.233Z</updated>
+  <updated>2021-02-23T08:31:05.138Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决TypeError：Super expression must either be null or a function, not undefined</title>
+    <link href="http://example.com/child/2021/02/23/react-super-expression/"/>
+    <id>http://example.com/child/2021/02/23/react-super-expression/</id>
+    <published>2021-02-23T07:53:58.000Z</published>
+    <updated>2021-02-23T08:31:05.138Z</updated>
+    
+    
+    <summary type="html">基于 React 做可视化页面，引入了 AntV 系列的 Ant Design Charts。本地运行测试服地址时，完美展现图表；不知为何，运行打包命令 npm run test-build 后，可视化页面空白，无法加载。打开 F12 发现 Console 存在一个错误提示：&quot;TypeError：Super expression must either be null or a function, not undefined&quot;。百思不得其解，本地运行完美，没有任何错误提示，为什么 build 后反倒是出现了错误? 经过多次查询解决方案，最终解决了这个让人头疼的问题，具体的解决方案如下。</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    
+    <category term="TypeError" scheme="http://example.com/child/tags/TypeError/"/>
+    
+  </entry>
   
   <entry>
     <title>重学Javascript(二):字符串</title>
@@ -408,31 +427,6 @@
     <category term="navigation" scheme="http://example.com/child/tags/navigation/"/>
     
     <category term="ScrollPositioning" scheme="http://example.com/child/tags/ScrollPositioning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决微信H5静默授权获取code以及H5页面历史回退死循环问题</title>
-    <link href="http://example.com/child/2020/09/25/h5-silent-authorization/"/>
-    <id>http://example.com/child/2020/09/25/h5-silent-authorization/</id>
-    <published>2020-09-25T08:20:31.000Z</published>
-    <updated>2020-11-24T08:50:14.085Z</updated>
-    
-    
-    <summary type="html">近期在开发 H5 页面相关需求，需求中有个微信静默授权登录的功能，之前没有接触过这个功能，经过调研官方文档，开发出了初级方案；初级方案可以解决获取 code，但是页面返回上一个页面时，需要连续返回两次才可以回到上一个页面。经过获取流程分析，解决了返回循环的 bug。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="H5" scheme="http://example.com/child/categories/H5/"/>
-    
-    
-    <category term="WxChat" scheme="http://example.com/child/tags/WxChat/"/>
-    
-    <category term="code" scheme="http://example.com/child/tags/code/"/>
-    
-    <category term="endlessLoop" scheme="http://example.com/child/tags/endlessLoop/"/>
     
   </entry>
   
