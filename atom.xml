@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2021-02-23T08:31:05.138Z</updated>
+  <updated>2021-02-26T09:59:33.252Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React路由传参方式以及传参方式的区别</title>
+    <link href="http://example.com/child/2021/02/26/react-router-params/"/>
+    <id>http://example.com/child/2021/02/26/react-router-params/</id>
+    <published>2021-02-26T09:45:20.000Z</published>
+    <updated>2021-02-26T09:59:33.252Z</updated>
+    
+    
+    <summary type="html">哈哈哈哈</summary>
+    
+    
+    
+    <category term="React" scheme="http://example.com/child/categories/React/"/>
+    
+    
+    <category term="Router" scheme="http://example.com/child/tags/Router/"/>
+    
+  </entry>
   
   <entry>
     <title>解决TypeError：Super expression must either be null or a function, not undefined</title>
@@ -59,7 +78,7 @@
     <link href="http://example.com/child/2020/11/27/one-daily-interview-questions/"/>
     <id>http://example.com/child/2020/11/27/one-daily-interview-questions/</id>
     <published>2020-11-27T02:11:51.000Z</published>
-    <updated>2021-02-26T07:07:35.098Z</updated>
+    <updated>2021-02-27T09:03:55.136Z</updated>
     
     
     <summary type="html">为了巩固自己的知识和提升技术栈的广度以及深度，每天都会学习一道面试题(本文会持续更新)。</summary>
@@ -404,29 +423,6 @@
     <category term="request" scheme="http://example.com/child/tags/request/"/>
     
     <category term="promise" scheme="http://example.com/child/tags/promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ref实现导航滚动定位</title>
-    <link href="http://example.com/child/2020/09/25/ref-scroll-nav-position/"/>
-    <id>http://example.com/child/2020/09/25/ref-scroll-nav-position/</id>
-    <published>2020-09-25T08:36:54.000Z</published>
-    <updated>2020-09-25T09:01:17.540Z</updated>
-    
-    
-    <summary type="html">在开发项目中时常有点击跳转滚动到锚点的需求，最简单的锚点定位就是给一个 &lt;a&gt;&lt;/a&gt; 标签，&lt;a&gt;&lt;/a&gt; 标签的 href = ‘#锚点’，然后给需要跳转的锚点一个 id = ‘锚点’。参考最简单的锚点跳转实现方式，在 React 中使用 useRef 来实现跳转锚点的功能。</summary>
-    
-    
-    
-    <category term="React" scheme="http://example.com/child/categories/React/"/>
-    
-    <category term="Javascript" scheme="http://example.com/child/categories/Javascript/"/>
-    
-    
-    <category term="navigation" scheme="http://example.com/child/tags/navigation/"/>
-    
-    <category term="ScrollPositioning" scheme="http://example.com/child/tags/ScrollPositioning/"/>
     
   </entry>
   
