@@ -6,7 +6,7 @@
   <link href="http://example.com/child/atom.xml" rel="self"/>
   
   <link href="http://example.com/child/"/>
-  <updated>2021-02-26T09:59:33.252Z</updated>
+  <updated>2021-03-02T09:14:09.337Z</updated>
   <id>http://example.com/child/</id>
   
   <author>
@@ -21,10 +21,10 @@
     <link href="http://example.com/child/2021/02/26/react-router-params/"/>
     <id>http://example.com/child/2021/02/26/react-router-params/</id>
     <published>2021-02-26T09:45:20.000Z</published>
-    <updated>2021-02-26T09:59:33.252Z</updated>
+    <updated>2021-03-02T09:14:09.337Z</updated>
     
     
-    <summary type="html">哈哈哈哈</summary>
+    <summary type="html">总结React-Router页面路由传参的四种方式，对比四种传参方式的优缺点，更好的去选择合适的方式去传参。</summary>
     
     
     
